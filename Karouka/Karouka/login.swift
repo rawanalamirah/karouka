@@ -1,88 +1,51 @@
-//
-//  login.swift
-//  Karouka
-//
-//  Created by rawan alamirah on 29/09/2023.
-//
-
 import SwiftUI
 
 struct login: View {
-    @State var email: String = ""
-    @State var pass: String = ""
-    @State var remember: Bool = true
-
-    
     var body: some View {
-        VStack {
-            Image("cribtoy") // Replace "baby_image" with your baby image asset name
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 350, height: 200)
-            .padding(.top, 35)
-            
-            Spacer()
-            
-            Text("Log in")
-                .font(.custom("Avenir-Medium", size: 30).bold())
-                .frame(width: 350, height:50 , alignment: .topLeading)
-            
-            Text("Enter your details to continue")
-                .font(.custom("Avenir-Medium", size: 20).bold())
-                .frame(width: 350, alignment: .leading)
-            
-            Spacer()
-            
-            VStack {
-                Text("Enter You E-mail")
-                    .font(.custom("Avenir-Medium", size: 12))
-                    .bold()
-                .frame(width: 350,alignment: .leading)
-                TextField("wx.yz@email.com", text: $email)
-                    .textFieldStyle(.roundedBorder)
-            }
-            .padding(.all, 10)
-        
-            VStack {
-                Text("Enter You Password")
-                    .font(.custom("Avenir-Medium", size: 12))
-                    .bold()
-                .frame(width: 350,alignment: .leading)
-                TextField("..........", text: $email)
-                    .textFieldStyle(.roundedBorder)
-            }
-            .padding(.all, 10)
-            
-            HStack {
-                Toggle("Remember Me", isOn: $remember)
-                    .toggleStyle(.switch)
-                    .padding()
-                
-                Spacer()
-                
-                Text("Recover Password")
-            }
-            .padding(.trailing, 20)
-            .padding(.leading, 20)
-            
-            NavigationLink(destination: login()) {
-                Text("Log In")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(width: 350, height: 50)
-                    .background(.purple.opacity(0.5))
-                    .cornerRadius(15)
-            }
-
-                
+        NavigationView{
+            ScrollView {
+                VStack{
+                    Image("cribtoy")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 350, height: 200)
+                    .padding(.top)
+                    
+                    
+                    Text("Log in")
+                        .font(.custom("Avenir-Medium", size: 30).bold())
+                        .padding(.bottom, 30)
+                        .padding(.top, 130)
+                        .padding(.trailing, 260)
+                    
+                        Section(header: Text("Enter your details to continue").font(.custom("Avenir-Medium", size: 20))) {
+                            TextField("Enter your e-mail", text: .constant(""))
+                                .keyboardType(.emailAddress)
+                                .padding(.bottom, 32)
                             
-         Spacer()
-        }.ignoresSafeArea()
-            
-            }
-}
+                            SecureField("Enter your password", text: .constant(""))
+                                .padding(.bottom, 32)
+                        }.listStyle(GroupedListStyle())
+                    
+                    
+                    NavigationLink(destination: homepage()) {
+                        Text("Log In")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(width: 350, height: 50)
+                            .background(.purple)
+                            .cornerRadius(15)
+                    }.padding(.top, 30)
+                }
+                .padding(.horizontal, 24)
+                .padding(.vertical, 16)
 
-struct login_Previews: PreviewProvider {
+            }.ignoresSafeArea()
+        }
+    }
+
+}
+struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {
         login()
     }

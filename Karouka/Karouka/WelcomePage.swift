@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WelcomePage: View {
     var body: some View {
+        NavigationView{
         VStack {
             Image("cribtoy")
                 .resizable()
@@ -19,7 +20,7 @@ struct WelcomePage: View {
             Text("KAROUKA")
                 .font(.custom("Avenir-Heavy", size: 45)) // Replace with your custom font and size
                 .fontWeight(.bold)
-                .foregroundColor(.purple.opacity(0.5))
+                .foregroundColor(.purple)
                 .padding(.top, 20)
             
             Image("crib")
@@ -44,7 +45,7 @@ struct WelcomePage: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(width: 350, height: 50)
-                    .background(.purple.opacity(0.5))
+                    .background(.purple)
                     .cornerRadius(15)
             }
             .padding(.bottom, 15)
@@ -54,7 +55,7 @@ struct WelcomePage: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(width: 350, height: 50)
-                    .background(.purple.opacity(0.5))
+                    .background(.purple)
                     .cornerRadius(15)
             }
             
@@ -63,7 +64,7 @@ struct WelcomePage: View {
 
     }
 }
-
+}
 struct WelcomePage_Previews: PreviewProvider {
     static var previews: some View {
         WelcomePage()

@@ -13,6 +13,8 @@
 		62A25AC22AC6FB0B00B90F7C /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25AC12AC6FB0B00B90F7C /* WelcomePage.swift */; };
 		62A25AC42AC700CC00B90F7C /* login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25AC32AC700CB00B90F7C /* login.swift */; };
 		62A25AC62AC700E400B90F7C /* signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25AC52AC700E400B90F7C /* signup.swift */; };
+		62A25ACC2ACC2ED300B90F7C /* homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25ACB2ACC2ED300B90F7C /* homepage.swift */; };
+		62A25ACE2ACC3BA900B90F7C /* chatbot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25ACD2ACC3BA900B90F7C /* chatbot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		62A25AC12AC6FB0B00B90F7C /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
 		62A25AC32AC700CB00B90F7C /* login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = login.swift; sourceTree = "<group>"; };
 		62A25AC52AC700E400B90F7C /* signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signup.swift; sourceTree = "<group>"; };
+		62A25ACB2ACC2ED300B90F7C /* homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homepage.swift; sourceTree = "<group>"; };
+		62A25ACD2ACC3BA900B90F7C /* chatbot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatbot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +63,10 @@
 				62A25AC12AC6FB0B00B90F7C /* WelcomePage.swift */,
 				62A25AC32AC700CB00B90F7C /* login.swift */,
 				62A25AC52AC700E400B90F7C /* signup.swift */,
+				62A25ACB2ACC2ED300B90F7C /* homepage.swift */,
 				624368AF2AC2AE6C005667B7 /* Assets.xcassets */,
 				624368B12AC2AE6C005667B7 /* Preview Content */,
+				62A25ACD2ACC3BA900B90F7C /* chatbot.swift */,
 			);
 			path = Karouka;
 			sourceTree = "<group>";
@@ -144,8 +150,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				62A25AC22AC6FB0B00B90F7C /* WelcomePage.swift in Sources */,
+				62A25ACE2ACC3BA900B90F7C /* chatbot.swift in Sources */,
 				62A25AC62AC700E400B90F7C /* signup.swift in Sources */,
 				62A25AC42AC700CC00B90F7C /* login.swift in Sources */,
+				62A25ACC2ACC2ED300B90F7C /* homepage.swift in Sources */,
 				624368AC2AC2AE67005667B7 /* KaroukaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

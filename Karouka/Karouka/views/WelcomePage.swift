@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct WelcomePage: View {
+    @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
         NavigationView{
         VStack {
@@ -18,7 +20,7 @@ struct WelcomePage: View {
                 .padding(.top, 35)
 
             Text("KAROUKA")
-                .font(.custom("Avenir-Heavy", size: 45)) // Replace with your custom font and size
+                .font(.custom("Avenir-Heavy", size: 45)) 
                 .fontWeight(.bold)
                 .foregroundColor(.purple)
                 .padding(.top, 20)
@@ -62,7 +64,8 @@ struct WelcomePage: View {
             Spacer()
         }.ignoresSafeArea()
 
-    }
+            
+        }.navigationBarBackButtonHidden(true)
 }
 }
 struct WelcomePage_Previews: PreviewProvider {

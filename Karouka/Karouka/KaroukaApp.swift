@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct KaroukaApp: App {
+    @StateObject var viewModel = AuthViewModel()
+    
+    init() {
+        FirebaseApp.configure()
+    }
     var body: some Scene {
         WindowGroup {
-            WelcomePage()
+            ContentView()
+                .environmentObject(viewModel)
+                
         }
     }
 }

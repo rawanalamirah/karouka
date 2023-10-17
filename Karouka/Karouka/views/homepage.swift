@@ -15,7 +15,7 @@ struct homepage: View {
                     }
 
 
-                Text("Chat")
+                chatbot()
                     .tag(1)
                     .tabItem {
                         Image(systemName: "message.fill")
@@ -30,7 +30,7 @@ struct homepage: View {
                     }
                     .tag(2)
 
-                Text("Profile")
+                profile()
                     .tag(3)
                     .tabItem {
                         Image(systemName: "person.fill")

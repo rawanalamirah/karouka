@@ -11,10 +11,14 @@ import FirebaseFirestoreSwift
 
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
-    @Published var currentaUser: user?
+    @Published var currentUser: user?
     
     init() {
         self.userSession = Auth.auth().currentUser
+        
+        Task {
+            await fetchUser()
+        }
     }
     func signIn(withEmail email: String, password: String) async throws {
         print("sign in")
@@ -32,16 +36,26 @@ class AuthViewModel: ObservableObject {
         }
     }
     func signOut() {
-        
+        do{
+            try Auth.auth().signOut() // signs out backend
+            self.userSession = nil // goes back to login screen, user session is empty
+            self.currentUser = nil // prevents errors
+        } catch {
+            print("DEBUG: Failed to sign out with error: \(error.localizedDescription)")
+        }
     }
     
     func deleteAccount(){
         
     }
     
-    func fetchUser() {
+    func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         
+        guard let snapshot = try? await Firestore.firestore().collection("users").document(uid).getDocument() else {return}
+        self.currentUser = try? snapshot.data(as: user.self)
+        
+//        print("DEBUG: Current user is \(self.currentaUser)")
     }
     
 }

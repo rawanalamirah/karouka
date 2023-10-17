@@ -46,7 +46,7 @@
 		62C42E642ADF1D7E00D3D205 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C42E632ADF1D7E00D3D205 /* InputView.swift */; };
 		62C42E672ADF25AA00D3D205 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C42E662ADF25AA00D3D205 /* user.swift */; };
 		62C42E6A2ADF281500D3D205 /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C42E692ADF281500D3D205 /* profile.swift */; };
-		62C42E702ADF2FFE00D3D205 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C42E6F2ADF2FFE00D3D205 /* File.swift */; };
+		62C42E702ADF2FFE00D3D205 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C42E6F2ADF2FFE00D3D205 /* AuthViewModel.swift */; };
 		62C42E772ADF478500D3D205 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C42E762ADF478500D3D205 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,7 +64,7 @@
 		62C42E632ADF1D7E00D3D205 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		62C42E662ADF25AA00D3D205 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
 		62C42E692ADF281500D3D205 /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
-		62C42E6F2ADF2FFE00D3D205 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		62C42E6F2ADF2FFE00D3D205 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		62C42E762ADF478500D3D205 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,7 +186,7 @@
 		62C42E6E2ADF2FE800D3D205 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
-				62C42E6F2ADF2FFE00D3D205 /* File.swift */,
+				62C42E6F2ADF2FFE00D3D205 /* AuthViewModel.swift */,
 			);
 			path = viewModel;
 			sourceTree = "<group>";
@@ -308,7 +308,7 @@
 				62C42E642ADF1D7E00D3D205 /* InputView.swift in Sources */,
 				62A25ACE2ACC3BA900B90F7C /* chatbot.swift in Sources */,
 				62A25AC62AC700E400B90F7C /* signup.swift in Sources */,
-				62C42E702ADF2FFE00D3D205 /* File.swift in Sources */,
+				62C42E702ADF2FFE00D3D205 /* AuthViewModel.swift in Sources */,
 				62C42E672ADF25AA00D3D205 /* user.swift in Sources */,
 				62A25AC42AC700CC00B90F7C /* login.swift in Sources */,
 				62A25ACC2ACC2ED300B90F7C /* homepage.swift in Sources */,

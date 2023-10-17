@@ -8,48 +8,65 @@
 import SwiftUI
 
 struct profile: View {
-    
-    @State private var userImage: Image = Image(systemName: "person.circle.fill")
+    @EnvironmentObject var viewModel: AuthViewModel
 
     var body: some View {
-        VStack {
-            // Profile Picture
-            userImage
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 150, height: 150)
-                .foregroundColor(.gray)
-                .padding(.top, 20)
-
-            // User Information
-            Text(user.MOCK_USER.fullname)
-                .font(.title)
-                .padding()
-
-            Text(user.MOCK_USER.email)
-                .font(.headline)
-                .padding()
-
-            // Additional User Details
-            // Add more Text views to display other user information
-
-            Spacer()
-
-            // Edit Profile Button
-            Button(action: {
-                // Handle edit profile action
-            }) {
-                Text("Edit Profile")
-                    .font(.headline)
+        if let user = viewModel.currentUser {
+            VStack {
+                // Profile Picture
+                Text(user.initials)
+                    .font(.title)
+                    .fontWeight(.semibold)
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 150, height: 150)
+                    .background(Color(.lightGray))
                     .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
+                    .clipShape(Circle())
+
+                // User Information
+                Text(user.fullname)
+                    .font(.title)
                     .padding()
-                    .background(Color.blue)
-                    .cornerRadius(8)
+
+                Text(user.email)
+                    .font(.headline)
+                    .padding()
+
+                // Additional User Details
+                // Add more Text views to display other user information
+
+                Spacer()
+                
+                // sign out button
+                Button{
+                    viewModel.signOut()
+                } label:{
+                    Text("sign out")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.purple)
+                        .cornerRadius(8)
+                }
+                .padding()
+
+                // Edit Profile Button
+                Button{
+                    
+                } label: {
+                    Text("Edit Profile")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(Color.purple)
+                        .cornerRadius(8)
+                }
+                .padding()
             }
-            .padding()
+            
         }
-        .navigationBarTitle("Profile", displayMode: .inline)
     }
 }
 

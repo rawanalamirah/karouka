@@ -40,7 +40,7 @@ struct WelcomePage: View {
         .font(.custom("Avenir-Medium", size: 20).bold())
                     .foregroundColor(.purple.opacity(0.3))
                 .padding(.top, 10)
-            }
+            }.padding(.bottom, 80)
             
             NavigationLink(destination: signup()) {
                 Text("Sign Up")

@@ -37,8 +37,10 @@ struct login: View {
                     Text("Email Address")
                         .foregroundColor(Color(.darkGray))
                         .fontWeight(.semibold)
-                    TextField("Enter your e-mail", text: .constant(""))
+                    TextField("email", text: .constant(""))
                         .keyboardType(.emailAddress)
+                        .autocapitalization(.none)
+                        .disableAutocorrection(true)
                         
                         Divider()
                     Text("Password")
@@ -64,6 +66,8 @@ struct login: View {
                         .frame(width: UIScreen.main.bounds.width - 30, height: 50)
                         
                 }.background(.purple)
+                        .disabled(formIsValid)
+                        .opacity(formIsValid ? 1.0 : 0.5)
                         .cornerRadius(15)
                     
                 }
@@ -71,9 +75,22 @@ struct login: View {
                 .padding(.vertical, 16)
 
             }.ignoresSafeArea()
-        }
+                
+        }.navigationBarBackButtonHidden(true)
     }
 
+}
+
+extension login: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+        && email.contains(".com")
+        && !password.isEmpty
+        && password.count > 5
+    }
+    
+    
 }
 struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {

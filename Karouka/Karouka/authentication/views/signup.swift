@@ -37,6 +37,7 @@ struct signup: View {
                     Section {
                         InputView(text: $fullName, title: "Enter your full name:", placeholder: "full Name")
                         .disableAutocorrection(true)
+                        .autocapitalization(.words)
                         
                         
                         InputView(text: $email, title: "Enter your email", placeholder: "email")
@@ -53,8 +54,22 @@ struct signup: View {
                     InputView(text: $password, title: "Enter your Password", placeholder: "Password", isSecuredField: true)
                     .autocapitalization(.none)
                         
-                    InputView(text: $ConfirmP, title: "Confirm your Password", placeholder: "Password", isSecuredField: true)
-                    .autocapitalization(.none)
+                    ZStack(alignment: .trailing) {
+                        InputView(text: $ConfirmP, title: "Confirm your Password", placeholder: "Password", isSecuredField: true)
+                        .autocapitalization(.none)
+                        
+                        if !password.isEmpty && !ConfirmP.isEmpty {
+                            if password == ConfirmP {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .imageScale(.large)
+                                    .foregroundColor(Color(.green))
+                            } else {
+                                Image(systemName: "xmark.circle.fill")
+                                    .imageScale(.large)
+                                    .foregroundColor(Color(.red))
+                            }
+                        }
+                    }
                         
                         Toggle(isOn: $isUserAgreePolicy) {
                             Text("By signing up, I agree to the Terms and Conditions and Privacy Policy")
@@ -79,15 +94,33 @@ struct signup: View {
                         .frame(width: UIScreen.main.bounds.width - 30, height: 50)
                         
                 }.background(.purple)
+                        .disabled(formIsValid)
+                        .opacity(formIsValid ? 1.0 : 0.5)
                         .cornerRadius(15)
                 }
                 .padding(.horizontal, 24)
                 .padding(.vertical, 16)
             }.ignoresSafeArea()
+                
         
+    }.navigationBarBackButtonHidden(true)
+}
+}
+
+extension signup: AuthenticationFormProtocol {
+    var formIsValid: Bool {
+        return !email.isEmpty
+        && email.contains("@")
+        && email.contains(".com")
+        && ConfirmE == email
+        && ConfirmP == password
+        && !password.isEmpty
+        && password.count > 5
     }
+    
+    
 }
-}
+
 struct SignUp_Previews: PreviewProvider {
     static var previews: some View {
         signup()

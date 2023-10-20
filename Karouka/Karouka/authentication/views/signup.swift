@@ -53,11 +53,13 @@ struct signup: View {
                         
                     InputView(text: $password, title: "Enter your Password", placeholder: "Password", isSecuredField: true)
                     .autocapitalization(.none)
+                    
                         
                     ZStack(alignment: .trailing) {
-                        InputView(text: $ConfirmP, title: "Confirm your Password", placeholder: "Password", isSecuredField: true)
-                        .autocapitalization(.none)
                         
+                        VStack {InputView(text: $ConfirmP, title: "Confirm your Password", placeholder: "Password", isSecuredField: true)
+                        .autocapitalization(.none)
+                        }
                         if !password.isEmpty && !ConfirmP.isEmpty {
                             if password == ConfirmP {
                                 Image(systemName: "checkmark.circle.fill")
@@ -84,6 +86,8 @@ struct signup: View {
                        
                         Task{
                             try await viewModel.createUser(withEmail: email, password: password, fullname: fullName)
+                            
+                            
                         }
                             
                     }
@@ -94,7 +98,7 @@ struct signup: View {
                         .frame(width: UIScreen.main.bounds.width - 30, height: 50)
                         
                 }.background(.purple)
-                        .disabled(formIsValid)
+                        .disabled(!formIsValid)
                         .opacity(formIsValid ? 1.0 : 0.5)
                         .cornerRadius(15)
                 }
@@ -103,18 +107,15 @@ struct signup: View {
             }.ignoresSafeArea()
                 
         
-    }.navigationBarBackButtonHidden(true)
+    }.navigationBarBackButtonHidden(false)
 }
 }
 
 extension signup: AuthenticationFormProtocol {
     var formIsValid: Bool {
-        return !email.isEmpty
-        && email.contains("@")
-        && email.contains(".com")
-        && ConfirmE == email
+        return email.contains("@")
         && ConfirmP == password
-        && !password.isEmpty
+        && email.contains(".com")
         && password.count > 5
     }
     

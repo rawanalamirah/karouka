@@ -15,7 +15,7 @@ struct login: View {
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 350, height: 200)
-                    .padding(.top)
+                        .padding(.top)
                     
                     //Form Title
                     HStack{
@@ -37,7 +37,7 @@ struct login: View {
                     Text("Email Address")
                         .foregroundColor(Color(.darkGray))
                         .fontWeight(.semibold)
-                    TextField("email", text: .constant(""))
+                    TextField("email", text: $email)
                         .keyboardType(.emailAddress)
                         .autocapitalization(.none)
                         .disableAutocorrection(true)
@@ -47,7 +47,7 @@ struct login: View {
                             .foregroundColor(Color(.darkGray))
                             .fontWeight(.semibold)
                             .padding(.top, 32)
-                    SecureField("Enter your password", text: .constant(""))
+                    SecureField("Enter your password", text: $password)
 
                         
                         Divider()
@@ -57,6 +57,7 @@ struct login: View {
                     Button {
                         Task{
                             try await viewModel.signIn(withEmail: email, password: password)
+                            print("login")
                         }
                     }
                 label: {
@@ -66,7 +67,7 @@ struct login: View {
                         .frame(width: UIScreen.main.bounds.width - 30, height: 50)
                         
                 }.background(.purple)
-                        .disabled(formIsValid)
+                        .disabled(!formIsValid)
                         .opacity(formIsValid ? 1.0 : 0.5)
                         .cornerRadius(15)
                     
@@ -76,21 +77,19 @@ struct login: View {
 
             }.ignoresSafeArea()
                 
-        }.navigationBarBackButtonHidden(true)
+        }.navigationBarBackButtonHidden(false)
     }
 
 }
 
 extension login: AuthenticationFormProtocol {
     var formIsValid: Bool {
-        return !email.isEmpty
-        && email.contains("@")
+        return email.contains("@")
         && email.contains(".com")
-        && !password.isEmpty
         && password.count > 5
     }
-    
-    
+
+
 }
 struct LoginPage_Previews: PreviewProvider {
     static var previews: some View {

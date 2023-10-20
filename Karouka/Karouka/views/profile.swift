@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct profile: View {
-    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var viewModel : AuthViewModel
 
     var body: some View {
         if let user = viewModel.currentUser {
@@ -22,6 +22,7 @@ struct profile: View {
                     .background(Color(.lightGray))
                     .foregroundColor(.white)
                     .clipShape(Circle())
+                    
 
                 // User Information
                 Text(user.fullname)
@@ -36,7 +37,7 @@ struct profile: View {
                 // Add more Text views to display other user information
 
                 Spacer()
-                
+
                 // sign out button
                 Button{
                     viewModel.signOut()
@@ -53,7 +54,7 @@ struct profile: View {
 
                 // Edit Profile Button
                 Button{
-                    
+
                 } label: {
                     Text("Edit Profile")
                         .font(.headline)
@@ -65,7 +66,7 @@ struct profile: View {
                 }
                 .padding()
             }
-            
+
         }
     }
 }

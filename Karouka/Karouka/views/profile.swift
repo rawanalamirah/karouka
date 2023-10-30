@@ -33,8 +33,6 @@ struct profile: View {
                     .font(.headline)
                     .padding()
 
-                // Additional User Details
-                // Add more Text views to display other user information
 
                 Spacer()
 

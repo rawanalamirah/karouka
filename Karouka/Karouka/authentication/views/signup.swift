@@ -11,7 +11,7 @@ struct signup: View {
     
     var body: some View {
         NavigationView{
-            ScrollView {
+            ScrollView{
                 VStack{
                     Image("cribtoy")
                         .resizable()

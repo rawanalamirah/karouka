@@ -1,13 +1,14 @@
 import SwiftUI
 
 struct homepage: View {
+//    @EnvironmentObject var viewModel : AuthViewModel
     @State private var selectedIndex = 0
 
     var body: some View {
         NavigationView {
             TabView(selection: $selectedIndex) {
                 
-                Text("Home")
+                home()
                     .tag(0)
                     .tabItem {
                         Image(systemName: "house.fill")

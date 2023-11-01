@@ -24,7 +24,7 @@ struct homepage: View {
                     }
 
 
-                Text("History")
+                history()
                     .tag(2)
                     .tabItem {
                         Image(systemName: "clock.fill")
@@ -42,7 +42,7 @@ struct homepage: View {
             }
             .accentColor(Color.purple)
             .onAppear {
-                UITabBar.appearance().barTintColor = UIColor.systemPink
+                UITabBar.appearance().barTintColor = UIColor.systemGray
             }
 
         }

@@ -3,4 +3,54 @@
    uuid = "E3189BDB-6D9B-4D48-9C6C-472B6BD28FD2"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B23CAE20-3A33-4F6E-B86C-25CB5A51AB33"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Karouka/views/sheetView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "sheetView"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "B23CAE20-3A33-4F6E-B86C-25CB5A51AB33 - 6ea644b0c743d188"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Karouka.sheetView.viewModel.getter : Karouka.AuthViewModel"
+                  moduleName = "Karouka"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rawanalamirah/Documents/GitHub/karouka/Karouka/Karouka/views/sheetView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "87">
+               </Location>
+               <Location
+                  uuid = "B23CAE20-3A33-4F6E-B86C-25CB5A51AB33 - ebabd00d07a0b03e"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Karouka.sheetView.$viewModel.getter : SwiftUI.EnvironmentObject&lt;Karouka.AuthViewModel&gt;.Wrapper"
+                  moduleName = "Karouka"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rawanalamirah/Documents/GitHub/karouka/Karouka/Karouka/views/sheetView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "87">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

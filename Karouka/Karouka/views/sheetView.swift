@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
 
 
 struct sheetView: View {
     @EnvironmentObject var viewModel : AuthViewModel
-    @State private var name = ""
+    @EnvironmentObject var activityManager : ActivityManager
     @State private var notes = ""
+    @State private var date = Date.now
     let icon : Image
     let title : String
     @Environment(\.dismiss) var dismiss
@@ -44,31 +46,24 @@ struct sheetView: View {
                     .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
                 Spacer()
             }.padding(.leading)
-            }
+            
 
                 Text("Looks Like you want to \(title)")
                     .font(.title2)
                     .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
             Spacer()
 
-//            InputView(text: $name, title: "Enter Caregiver name:", placeholder: "Caregiver")
-//                .disableAutocorrection(true)
-//                .autocapitalization(.words).padding(.leading)
-            
-//            InputView(text: $notes, title: "Enter notes if any:", placeholder: "write notes here")
-//                .padding(.leading)
-//                .disableAutocorrection(true)
             
             Text("Do you have any extra notes?")
             TextField("notes", text: $notes)
                 .lineLimit(10)
                 .padding()
                 .frame(minWidth: 300, maxWidth: 300, minHeight: 100, maxHeight: 200, alignment: .topLeading)
-//                .clipShape(Rectangle().stroke(.gray, lineWidth: 10))
                 .textFieldStyle(.roundedBorder)
                 .cornerRadius(10)
             
             Button("Done") {
+                activityManager.addAct(name: user.fullname, icon: icon, type: title, note: notes)
                 dismiss()
             }.padding()
             .padding(.leading)
@@ -76,7 +71,7 @@ struct sheetView: View {
             .background(Color(red: 180/255, green: 200/255, blue: 255/255))
             .cornerRadius(15)
             .foregroundColor(Color(.white))
-            
+            }
             Spacer()
         }
 
@@ -86,6 +81,6 @@ struct sheetView: View {
 
 struct sheetView_Previews: PreviewProvider {
     static var previews: some View {
-        sheetView(icon: Image("diaper"), title: "Diaper Change")
+        sheetView(icon: Image(""), title: "")
     }
 }

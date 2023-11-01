@@ -11,6 +11,7 @@ import Firebase
 @main
 struct KaroukaApp: App {
     @StateObject var viewModel = AuthViewModel()
+    @StateObject var activityManager = ActivityManager()
     
     init() {
         FirebaseApp.configure()
@@ -19,6 +20,7 @@ struct KaroukaApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(viewModel)
+                .environmentObject(activityManager)
                 
         }
     }

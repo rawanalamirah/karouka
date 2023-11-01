@@ -12,6 +12,8 @@ struct home: View {
     @State private var rockingMotion = false
     @State private var sound = false
     @State private var showingSheet = false
+    var today = Date.now
+    
     var body: some View {
         
         ZStack {
@@ -102,15 +104,37 @@ struct home: View {
                     HStack {
                         Text("Day Activity")
                             .bold()
-                            .padding(.bottom, -35)
+                            .padding(.bottom, -15)
                             .padding()
                             .font(.system(size: 25))
                         Spacer()
                     }
                     
-                    ZStack {
+                    VStack {
+                        HStack {
+                            Text(Date.now, style: .date)
+                                .padding(.leading)
+                            Spacer()
+                        }
                         Text("")
+                            .padding()
+                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                            
+                        Text("")
+                            .padding()
+                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                        Text("")
+                            .padding()
+                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                        Text("")
+                            .padding()
+                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                        
                     }
+                        .background(Color(.white))
+                        .cornerRadius(15)
+                        .padding()
+                        
                     
                 }
             }

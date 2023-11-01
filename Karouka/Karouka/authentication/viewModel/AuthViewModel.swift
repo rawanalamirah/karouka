@@ -18,7 +18,9 @@ class AuthViewModel: ObservableObject {
     @Published var currentUser: user?
     
     init() {
-        self.userSession = Auth.auth().currentUser
+        DispatchQueue.main.async {
+            self.userSession = Auth.auth().currentUser
+        }
         
         Task {
             await fetchUser()
@@ -27,10 +29,14 @@ class AuthViewModel: ObservableObject {
     func signIn(withEmail email: String, password: String) async throws {
         do{
             let result = try await Auth.auth().signIn(withEmail: email, password: password)
+            
+            await fetchUser()
+            
             DispatchQueue.main.async {
                 self.userSession = result.user
             }
-            await fetchUser()
+            
+            
         } catch {
             print("DEBUG: Failed to log in with error \(error.localizedDescription)")
         }
@@ -63,11 +69,14 @@ class AuthViewModel: ObservableObject {
             print("DEBUG: Failed to sign out with error: \(error.localizedDescription)")
         }
     }
-//    
+    
 //    func deleteAccount(){
-//        
+//        do{
+//            try Auth.auth().
+//        }
+//
 //    }
-//    
+    
     func fetchUser() async {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         

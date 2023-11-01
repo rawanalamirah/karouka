@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct home: View {
     @State private var rockingMotion = false
     @State private var sound = false
+    @State private var showingSheet = false
     var body: some View {
         
         ZStack {
@@ -81,18 +83,18 @@ struct home: View {
                     }
                     
                     HStack (spacing: 45){
-                        Rectangle()
-                            .fill(Color(red: 180/255, green: 200/255, blue: 255/255))
-                            .frame(width: 70, height: 90)
-                            .cornerRadius(10)
-                        Rectangle()
-                            .fill(Color(red: 180/255, green: 200/255, blue: 255/255))
-                            .frame(width: 70, height: 90)
-                            .cornerRadius(10)
-                        Rectangle()
-                            .fill(Color(red: 180/255, green: 200/255, blue: 255/255))
-                            .frame(width: 70, height: 90)
-                            .cornerRadius(10)
+        
+                        AddActivity(title: "Diaper", icon: Image("diaper"))
+                            .onTapGesture(perform: {showingSheet.toggle()})
+                            .sheet(isPresented: $showingSheet) {sheetView(icon: Image("diaper"), title: "Diaper Change")}
+                        AddActivity(title: "Nursing", icon: Image("milk"))
+                            .onTapGesture(perform: {showingSheet.toggle()})
+                            .sheet(isPresented: $showingSheet) {sheetView(icon: Image("milk"), title: "Nurse")}
+                        AddActivity(title: "Meds", icon: Image("pills"))
+                            .onTapGesture(perform: {showingSheet.toggle()})
+                            .sheet(isPresented: $showingSheet) {sheetView(icon: Image("pills"), title: "Give Meds")}
+                        
+                        
                     }.padding()
                         .background(Color(.white))
                         .cornerRadius(15)

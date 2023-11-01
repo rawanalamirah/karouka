@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct homepage: View {
-//    @EnvironmentObject var viewModel : AuthViewModel
+    @EnvironmentObject var viewModel : AuthViewModel
     @State private var selectedIndex = 0
 
     var body: some View {
@@ -25,11 +25,12 @@ struct homepage: View {
 
 
                 Text("History")
+                    .tag(2)
                     .tabItem {
                         Image(systemName: "clock.fill")
                         Text("History")
                     }
-                    .tag(2)
+                    
 
                 profile()
                     .tag(3)

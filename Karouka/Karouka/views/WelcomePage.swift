@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct WelcomePage: View {
-//    @EnvironmentObject var viewModel: AuthViewModel
+    @EnvironmentObject var viewModel: AuthViewModel
     var body: some View {
         NavigationView{
         VStack {

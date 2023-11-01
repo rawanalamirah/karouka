@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct profile: View {
     @EnvironmentObject var viewModel : AuthViewModel

@@ -29,11 +29,11 @@ class ActivityManager: ObservableObject {
                 for document in snapshot.documents {
                     let data = document.data()
                     
-                    let id = data["id"] as? String ?? ""
+                    let id = data["id"] as? String ?? "1"
                     let date = data["date"] as? Date ?? Date.now
-                    let name = data["name"] as? String ?? ""
-                    let type = data["type"] as? String ?? ""
-                    let icon = data["icon"] as? Image ?? Image("")
+                    let name = data["name"] as? String ?? "rawan"
+                    let type = data["type"] as? String ?? "diaper change"
+                    let icon = data["icon"] as? Image ?? Image("diaper")
                     
                     let Activity = Activity(id: id, date: date, name: name, type: type, icon: icon)
                     self.Activities.append(Activity)

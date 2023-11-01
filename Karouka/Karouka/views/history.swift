@@ -23,8 +23,10 @@ struct history: View {
                 HStack {
                 activity.icon
                     .resizable()
+                    .frame(width: 50, height: 60, alignment: .center)
                     Divider()
                 Text(activity.name)
+                        .foregroundColor(.white)
                 }
                 .padding()
                 

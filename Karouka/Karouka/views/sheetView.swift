@@ -42,7 +42,7 @@ struct sheetView: View {
             if let user = viewModel.currentUser {
             HStack {
                 Text("Hello \(user.fullname)!")
-                    .font(.system(size:35 ))
+                    .font(.system(size:35))
                     .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
                 Spacer()
             }.padding(.leading)
@@ -81,6 +81,6 @@ struct sheetView: View {
 
 struct sheetView_Previews: PreviewProvider {
     static var previews: some View {
-        sheetView(icon: Image(""), title: "")
+        sheetView(icon: Image("diaper"), title: "")
     }
 }

@@ -11,8 +11,11 @@ import Firebase
 struct home: View {
     @State private var rockingMotion = false
     @State private var sound = false
-    @State private var showingSheet = false
-    var today = Date.now
+    @State private var diaperSheet = false
+    @State private var nurseSheet = false
+    @State private var medsSheet = false
+    @EnvironmentObject var activityManager : ActivityManager
+    let today = Date()
     
     var body: some View {
         
@@ -85,55 +88,79 @@ struct home: View {
                     }
                     
                     HStack (spacing: 45){
-        
+                        
+                        VStack {
                         AddActivity(title: "Diaper", icon: Image("diaper"))
-                            .onTapGesture(perform: {showingSheet.toggle()})
-                            .sheet(isPresented: $showingSheet) {sheetView(icon: Image("diaper"), title: "Diaper Change")}
-                        AddActivity(title: "Nursing", icon: Image("milk"))
-                            .onTapGesture(perform: {showingSheet.toggle()})
-                            .sheet(isPresented: $showingSheet) {sheetView(icon: Image("milk"), title: "Nurse")}
-                        AddActivity(title: "Meds", icon: Image("pills"))
-                            .onTapGesture(perform: {showingSheet.toggle()})
-                            .sheet(isPresented: $showingSheet) {sheetView(icon: Image("pills"), title: "Give Meds")}
-                        
-                        
-                    }.padding()
-                        .background(Color(.white))
-                        .cornerRadius(15)
-                    
-                    HStack {
-                        Text("Day Activity")
-                            .bold()
-                            .padding(.bottom, -15)
-                            .padding()
-                            .font(.system(size: 25))
-                        Spacer()
-                    }
-                    
-                    VStack {
-                        HStack {
-                            Text(Date.now, style: .date)
-                                .padding(.leading)
-                            Spacer()
+                            .onTapGesture(perform: {diaperSheet.toggle()})
+                            .sheet(isPresented: $diaperSheet, content: {DiaperView()})
                         }
-                        Text("")
-                            .padding()
-                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
-                            
-                        Text("")
-                            .padding()
-                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
-                        Text("")
-                            .padding()
-                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
-                        Text("")
-                            .padding()
-                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                        
+                        
+                        VStack {
+                        AddActivity(title: "Nursing", icon: Image("milk"))
+                            .onTapGesture(perform: {nurseSheet.toggle()})
+                            .sheet(isPresented: $nurseSheet, content: {NurseView()})
+                        }
+                        
+                        
+                        VStack {
+                        AddActivity(title: "Meds", icon: Image("pills"))
+                            .onTapGesture(perform: {medsSheet.toggle()})
+                            .sheet(isPresented: $medsSheet, content: {MedsView()})
+                        }
                         
                     }
-                        .background(Color(.white))
-                        .cornerRadius(15)
-                        .padding()
+                    .padding()
+                    .background(Color(.white))
+                    .cornerRadius(15)
+                    .padding(.bottom, 80)
+                    
+                    Spacer()
+                    
+//                    HStack {
+//                        Text("Day Activity")
+//                            .bold()
+//                            .padding(.bottom, -15)
+//                            .padding()
+//                            .font(.system(size: 25))
+//                        Spacer()
+//                    }
+//
+//                    VStack {
+//                        HStack {
+//                            Text(Date.now, style: .date)
+//                                .padding(.leading)
+//                            Spacer()
+//                        }
+//
+//                         List {
+//                             ForEach(activityManager.Activities.filter { isToday($0.date) }) { activity in
+//                                 HStack {
+//                                 Image(activity.icon)
+//                                     .resizable()
+//                                     .frame(width: 30, height: 30, alignment: .center)
+//                                     .padding(.trailing)
+//
+//                                 Text(activity.date, style: .time)
+//                                     .foregroundColor(.white)
+//                                 Divider()
+//                                 Text(activity.name)
+//                                         .foregroundColor(.white)
+//                                         .padding(.leading)
+//                                         .padding(.trailing)
+//                                 }
+//                                 .frame(width: 300, height: 40)
+//                                 .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+//                                     .cornerRadius(15)
+//
+//                             }
+//                               }
+//                            .cornerRadius(15)
+//
+//                    }
+//                        .background(Color(.white))
+//                        .cornerRadius(15)
+//                        .padding()
                         
                     
                 }
@@ -141,6 +168,12 @@ struct home: View {
             
         }.ignoresSafeArea()
 }
+    }
+
+func isToday(_ date: Date) -> Bool {
+        let calendar = Calendar.current
+        let today = Date()
+        return calendar.isDate(date, inSameDayAs: today)
     }
     
 

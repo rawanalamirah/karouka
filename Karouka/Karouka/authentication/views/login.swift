@@ -85,7 +85,7 @@ struct login: View {
 extension login: AuthenticationFormProtocol {
     var formIsValid: Bool {
         return email.contains("@")
-        && email.contains(".com")
+//        && email.contains(".com")
         && password.count > 5
     }
 

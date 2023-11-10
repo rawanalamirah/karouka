@@ -13,29 +13,111 @@ struct profile: View {
 
     var body: some View {
         if let user = viewModel.currentUser {
+        ZStack {
+            Color(red: 265/255, green: 190/255, blue: 230/255).opacity(0.4)
             VStack {
+//                Spacer()
                 // Profile Picture
-                Text(user.initials)
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .aspectRatio(contentMode: .fill)
-                    .frame(width: 150, height: 150)
+                HStack {
+                    Image(systemName: "person")
+                        .foregroundColor(.white)
+                        .font(.system(size: 40))
+                    .frame(width: 80, height: 80)
                     .background(Color(.lightGray))
-                    .foregroundColor(.white)
                     .clipShape(Circle())
                     
-
+                    VStack (alignment: .leading){
                 // User Information
-                Text(user.fullname)
+//                Text("Rawan Alamirah")
+                  Text(user.fullname)
                     .font(.title)
-                    .padding()
 
-                Text(user.email)
+//                Text("rawanalamirah@hotmail.com")
+                  Text(user.email)
+                    .foregroundColor(.black)
                     .font(.headline)
-                    .padding()
+                    .padding(.top, -5)
+                }
+                }
+                .padding()
+                .frame(width: 370, height: 120, alignment: .center)
+                .background(Color(.white))
+                .cornerRadius(25)
+                .padding(.bottom, 80)
+//                Spacer()
+                
+                VStack {
+                    HStack {
+                        Text("Options")
+                            .bold()
+                            .font(.system(size: 25))
+                        Spacer()
+                            
+                    }
+                    Divider()
+                    HStack {
+                    Image(systemName: "person.crop.circle")
+                            .frame(width: 30, height: 30, alignment: .center)
+                            .foregroundColor(.white)
+                            .font(.system(size: 20))
+                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                            .clipShape(Circle())
 
+                    Text("Account Setting")
+                            .font(.system(size: 20))
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                    }
+                    Divider()
+                    HStack {
+                        Image(systemName: "bandage")
+                                .frame(width: 30, height: 30, alignment: .center)
+                                .foregroundColor(.white)
+                                .font(.system(size: 20))
+                                .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                .clipShape(Circle())
+                        
+                    Text("Infant's Profile")
+                            .font(.system(size: 20))
 
-                Spacer()
+                    Spacer()
+                    Image(systemName: "chevron.right")
+                    }
+                    Divider()
+                    HStack {
+                        Image(systemName: "move.3d")
+                                .frame(width: 30, height: 30, alignment: .center)
+                                .foregroundColor(.white)
+                                .font(.system(size: 20))
+                                .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                .clipShape(Circle())
+                        Text("Caregivers and Access")
+                            .font(.system(size: 20))
+
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                        }
+                    Divider()
+
+                    HStack {
+                        Image(systemName: "questionmark.circle")
+                                .frame(width: 30, height: 30, alignment: .center)
+                                .foregroundColor(.white)
+                                .font(.system(size: 20))
+                                .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                .clipShape(Circle())
+                        Text("Help Center")
+                            .font(.system(size: 20))
+
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            }
+                }
+                .padding()
+                .frame(width: 370, height: 280, alignment: .center)
+                .background(Color(.white))
+                .cornerRadius(25)
+                .padding(.bottom, 60)
 
                 // sign out button
                 Button{
@@ -46,25 +128,26 @@ struct profile: View {
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
                         .padding()
-                        .background(Color.purple)
+                        .background(Color(red: 180/255, green: 200/255, blue: 255/255))
                         .cornerRadius(8)
                 }
                 .padding()
 
                 // Edit Profile Button
-                Button{
-
-                } label: {
-                    Text("Edit Profile")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.purple)
-                        .cornerRadius(8)
-                }
-                .padding()
+//                Button{
+//
+//                } label: {
+//                    Text("Edit Profile")
+//                        .font(.headline)
+//                        .foregroundColor(.white)
+//                        .frame(maxWidth: .infinity)
+//                        .padding()
+//                        .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+//                        .cornerRadius(8)
+//                }
+//                .padding()
             }
+        }.ignoresSafeArea()
 
         }
     }

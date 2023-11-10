@@ -45,11 +45,11 @@ struct signup: View {
                         .autocapitalization(.none)
                         
                         
-                    InputView(text: $ConfirmE, title: "Confirm your email", placeholder: "email")
-                    .keyboardType(.emailAddress)
-                    .autocapitalization(.none)
+//                    InputView(text: $ConfirmE, title: "Confirm your email", placeholder: "email")
+//                    .keyboardType(.emailAddress)
+//                    .autocapitalization(.none)
                     }
-                    
+//                    
                         
                     InputView(text: $password, title: "Enter your Password", placeholder: "Password", isSecuredField: true)
                     .autocapitalization(.none)
@@ -87,6 +87,7 @@ struct signup: View {
                         Task{
                             try await viewModel.createUser(withEmail: email, password: password, fullname: fullName)
                             
+                        
                             
                         }
                             
@@ -115,7 +116,6 @@ extension signup: AuthenticationFormProtocol {
     var formIsValid: Bool {
         return email.contains("@")
         && ConfirmP == password
-        && email.contains(".com")
         && password.count > 5
     }
     

@@ -15,7 +15,9 @@
 		624368B32AC2AE6C005667B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 624368B22AC2AE6C005667B7 /* Preview Assets.xcassets */; };
 		626F4D292AF0006B005A69B6 /* VitalSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F4D282AF0006A005A69B6 /* VitalSign.swift */; };
 		626F4D2B2AF0F411005A69B6 /* AddActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F4D2A2AF0F411005A69B6 /* AddActivity.swift */; };
-		626F4D2D2AF2ABB9005A69B6 /* sheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626F4D2C2AF2ABB9005A69B6 /* sheetView.swift */; };
+		62796B7A2AF923C100AAFC5D /* DiaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62796B792AF923C100AAFC5D /* DiaperView.swift */; };
+		62796B7C2AF9242F00AAFC5D /* NurseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62796B7B2AF9242F00AAFC5D /* NurseView.swift */; };
+		62796B7E2AF9246000AAFC5D /* MedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62796B7D2AF9246000AAFC5D /* MedsView.swift */; };
 		62A25AC22AC6FB0B00B90F7C /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25AC12AC6FB0B00B90F7C /* WelcomePage.swift */; };
 		62A25AC42AC700CC00B90F7C /* login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25AC32AC700CB00B90F7C /* login.swift */; };
 		62A25AC62AC700E400B90F7C /* signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25AC52AC700E400B90F7C /* signup.swift */; };
@@ -66,7 +68,9 @@
 		624368B22AC2AE6C005667B7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		626F4D282AF0006A005A69B6 /* VitalSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VitalSign.swift; sourceTree = "<group>"; };
 		626F4D2A2AF0F411005A69B6 /* AddActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActivity.swift; sourceTree = "<group>"; };
-		626F4D2C2AF2ABB9005A69B6 /* sheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sheetView.swift; sourceTree = "<group>"; };
+		62796B792AF923C100AAFC5D /* DiaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaperView.swift; sourceTree = "<group>"; };
+		62796B7B2AF9242F00AAFC5D /* NurseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NurseView.swift; sourceTree = "<group>"; };
+		62796B7D2AF9246000AAFC5D /* MedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedsView.swift; sourceTree = "<group>"; };
 		62A25AC12AC6FB0B00B90F7C /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
 		62A25AC32AC700CB00B90F7C /* login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = login.swift; sourceTree = "<group>"; };
 		62A25AC52AC700E400B90F7C /* signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signup.swift; sourceTree = "<group>"; };
@@ -178,7 +182,9 @@
 				62A25ACD2ACC3BA900B90F7C /* chatbot.swift */,
 				62C42E692ADF281500D3D205 /* profile.swift */,
 				62F04D4C2AEFDFB60076CBC4 /* home.swift */,
-				626F4D2C2AF2ABB9005A69B6 /* sheetView.swift */,
+				62796B7D2AF9246000AAFC5D /* MedsView.swift */,
+				62796B7B2AF9242F00AAFC5D /* NurseView.swift */,
+				62796B792AF923C100AAFC5D /* DiaperView.swift */,
 				620150162AF30037006395A1 /* history.swift */,
 			);
 			path = views;
@@ -332,11 +338,13 @@
 				626F4D292AF0006B005A69B6 /* VitalSign.swift in Sources */,
 				62F04D4D2AEFDFB60076CBC4 /* home.swift in Sources */,
 				62C42E702ADF2FFE00D3D205 /* AuthViewModel.swift in Sources */,
-				626F4D2D2AF2ABB9005A69B6 /* sheetView.swift in Sources */,
 				620150152AF2FD67006395A1 /* ActivityManager.swift in Sources */,
+				62796B7E2AF9246000AAFC5D /* MedsView.swift in Sources */,
 				62C42E672ADF25AA00D3D205 /* user.swift in Sources */,
 				62A25AC42AC700CC00B90F7C /* login.swift in Sources */,
+				62796B7A2AF923C100AAFC5D /* DiaperView.swift in Sources */,
 				62A25ACC2ACC2ED300B90F7C /* homepage.swift in Sources */,
+				62796B7C2AF9242F00AAFC5D /* NurseView.swift in Sources */,
 				624368AC2AC2AE67005667B7 /* KaroukaApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

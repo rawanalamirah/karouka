@@ -40,9 +40,9 @@ struct homepage: View {
                     }
 
             }
-            .accentColor(Color.purple)
+            .accentColor(Color(red: 180/255, green: 200/255, blue: 255/255))
             .onAppear {
-                UITabBar.appearance().barTintColor = UIColor.systemGray
+                UITabBar.appearance().barTintColor = UIColor.white
             }
 
         }

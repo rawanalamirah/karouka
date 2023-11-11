@@ -17,7 +17,6 @@ struct DiaperView: View {
     @Environment(\.dismiss) var dismiss
     var body: some View {
         ZStack {
-            Color(red: 180/255, green: 200/255, blue: 255/255)
             VStack {
                 Spacer()
                 HStack {
@@ -32,7 +31,6 @@ struct DiaperView: View {
                         .padding(.trailing, 5)
                         .padding(.leading, 5)
                         .padding(.top, 5)
-//                        .background(Color(red: 180/255, green: 200/255, blue: 255/255))
                         .frame(width: 80, height: 80, alignment: .center)
                         .cornerRadius(10)
                         .padding(.trailing, 10)
@@ -54,8 +52,7 @@ struct DiaperView: View {
                         .frame(width: 380, height: 100, alignment: .topLeading)
                 Spacer()
                 
-//                InputView(text: $name, title: "caregiver name", placeholder: "caregiver name")
-//                    .padding(.leading)
+
                 
                 VStack {
                 Text("Enter Your name please:")
@@ -90,9 +87,9 @@ struct DiaperView: View {
                 .padding(.bottom)
     //            }
     //            Spacer()
-            }
+            }.background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                .cornerRadius(25)
         } .padding(.top, 120)
-            .cornerRadius(25)
         
     }
 }

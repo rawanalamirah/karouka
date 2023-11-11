@@ -17,7 +17,7 @@ struct NurseView: View {
     @Environment(\.dismiss) var dismiss
     var body: some View {
         ZStack {
-            Color(red: 180/255, green: 200/255, blue: 255/255)
+//            Color(red: 180/255, green: 200/255, blue: 255/255)
             VStack {
                 Spacer()
                 HStack {
@@ -90,9 +90,9 @@ struct NurseView: View {
                 .padding(.bottom)
     //            }
     //            Spacer()
-            }
+            }.background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                .cornerRadius(25)
         } .padding(.top, 120)
-            .cornerRadius(25)
 
         
     }

@@ -18,9 +18,9 @@ struct MedsView: View {
     
     var body: some View {
         ZStack {
-            Color(red: 180/255, green: 200/255, blue: 255/255)
+//            Color(red: 180/255, green: 200/255, blue: 255/255)
             VStack {
-                Spacer()
+//                Spacer()
                 HStack {
                     Text("Medicine")
                         .font(.largeTitle)
@@ -29,16 +29,14 @@ struct MedsView: View {
                     Spacer()
                     Image("pills")
                         .resizable()
-                        .padding(.bottom, 5)
-                        .padding(.trailing, 5)
-                        .padding(.leading, 5)
-                        .padding(.top, 5)
-//                        .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                        .padding(.all, 5)
                         .frame(width: 80, height: 80, alignment: .center)
-                        .cornerRadius(10)
-                        .padding(.trailing, 10)
                     
                 }
+                .padding(.leading, 5)
+                .padding(.trailing, 5)
+                .cornerRadius(25)
+
 //                Spacer()
     //            if let user = viewModel.currentUser {
                 HStack {
@@ -55,9 +53,6 @@ struct MedsView: View {
                         .frame(width: 350, height: 100, alignment: .topLeading)
                 Spacer()
                 
-//                InputView(text: $name, title: "caregiver name", placeholder: "caregiver name")
-//                    .padding(.leading)
-                
                 VStack {
                 Text("Enter Your name please:")
                     .padding(.top, 20)
@@ -72,6 +67,7 @@ struct MedsView: View {
                     .padding(.top, 20)
                     .foregroundColor(.white)
                     .font(.system(size: 18))
+                
                 TextField("notes", text: $notes)
                     .lineLimit(10)
                     .padding()
@@ -82,19 +78,22 @@ struct MedsView: View {
                 Button("Done") {
                     activityManager.addAct(id: Int.random(in: 1...10000), name: name, icon: "pills", type: "Meds", note: notes)
                     dismiss()
-                }.padding()
-//                .padding(.leading)
-//                .padding(.trailing)
-                    .frame(width: 300, height: 50, alignment: .center)
-                .background(Color(.white))                .cornerRadius(15)
+                }
+                .padding()
+                .frame(width: 300, height: 50, alignment: .center)
+                .background(Color(.white))
+                .cornerRadius(15)
                 .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
                 .padding(.bottom)
     //            }
     //            Spacer()
             }
-        } .padding(.top, 120)
+            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
             .cornerRadius(25)
 
+        }
+        .padding(.top, 120)
+        
         
     }
 }

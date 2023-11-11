@@ -98,7 +98,7 @@ struct signup: View {
                         .foregroundColor(.white)
                         .frame(width: UIScreen.main.bounds.width - 30, height: 50)
                         
-                }.background(.purple)
+                }.background(Color(red: 190/255, green: 150/255, blue: 255/255))
                         .disabled(!formIsValid)
                         .opacity(formIsValid ? 1.0 : 0.5)
                         .cornerRadius(15)
@@ -117,6 +117,7 @@ extension signup: AuthenticationFormProtocol {
         return email.contains("@")
         && ConfirmP == password
         && password.count > 5
+        && isUserAgreePolicy
     }
     
     

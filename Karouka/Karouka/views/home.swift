@@ -14,6 +14,7 @@ struct home: View {
     @State private var diaperSheet = false
     @State private var nurseSheet = false
     @State private var medsSheet = false
+    @State private var imageData: Data?
     @EnvironmentObject var activityManager : ActivityManager
     let today = Date()
     
@@ -24,12 +25,36 @@ struct home: View {
             
             ScrollView {
                 VStack {
+                    ZStack {
                     Rectangle()
                         .fill(.white)
                         .cornerRadius(25)
                         .frame(width: 360, height: 200, alignment: .center)
                         .shadow(color: .white, radius: 25, x: 5, y: 0)
                         .padding(.top, 30)
+                        VStack {
+                                    if let imageData = imageData, let uiImage = UIImage(data: imageData) {
+                                        Image(uiImage: uiImage)
+                                            .resizable()
+                                            .scaledToFit()
+                                    } else {
+                                        Text("Loading...")
+                                    }
+                                }
+                                .onAppear {
+                                    let cameraURL = URL(string: "http://172.20.10.8:8000/video")!
+
+                                    // Use URLSession to download the image data
+                                    URLSession.shared.dataTask(with: cameraURL) { data, response, error in
+                                        if let data = data {
+                                            DispatchQueue.main.async {
+                                                // Update the UI with the downloaded image data
+                                                imageData = data
+                                            }
+                                        }
+                                    }.resume()
+                                }
+                    }
                     HStack {
                         Text("Vital Signs")
                             .bold()

@@ -19,17 +19,17 @@ struct WelcomePage: View {
                 .frame(width: 90, height: 70)
                 .padding(.top, 35)
 
-            Text("KAROUKA")
-                .font(.custom("Avenir-Heavy", size: 45)) 
-                .fontWeight(.bold)
-                .foregroundColor(.purple)
-                .padding(.top, 20)
-            
-            Image("crib")
+//            Text("KAROUKA")
+//                .font(.custom("Avenir-Heavy", size: 45))
+//                .fontWeight(.bold)
+//                .foregroundColor(.purple)
+//                .padding(.top, 20)
+//
+            Image("karouka")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 400, height: 250)
-                .padding(.top, -20)
+                .padding(.top)
 
             ZStack {
                 Text("      Smart, Safe, and Secure: \nKarouka for your peace of mind")
@@ -47,7 +47,7 @@ struct WelcomePage: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(width: 350, height: 50)
-                    .background(.purple)
+                    .background(Color(red: 190/255, green: 150/255, blue: 255/255))
                     .cornerRadius(15)
             }
             .padding(.bottom, 15)
@@ -57,7 +57,7 @@ struct WelcomePage: View {
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(width: 350, height: 50)
-                    .background(.purple)
+                    .background(Color(red: 190/255, green: 150/255, blue: 255/255))
                     .cornerRadius(15)
             }
             

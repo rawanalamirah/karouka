@@ -6,10 +6,14 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct user: Identifiable, Codable {
     let id: String
+    let profilepic: String
     let fullname: String
+    let infant: String
+    let cribID: String
     let email: String
     let password: String
     
@@ -25,5 +29,5 @@ struct user: Identifiable, Codable {
 }
 
 extension user {
-    static var MOCK_USER = user(id: NSUUID().uuidString, fullname: "Rawan Alamirah", email: "rawanalamirah@hotmail.com", password: "123456")
+    static var MOCK_USER = user(id: NSUUID().uuidString, profilepic: "", fullname: "Rawan Alamirah", infant: "Thuraya", cribID: "", email: "rawanalamirah@hotmail.com", password: "123456")
 }

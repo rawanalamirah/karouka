@@ -1,26 +1,90 @@
 import SwiftUI
+import Combine
 
 struct chatbot: View {
-    @State private var userInput = ""
-    @State private var chatMessages: [String] = []
+    @State var chatMessages: [ChatMessage] = []
+    @State var message: String = ""
+    let openAIService = OpenAIService()
+    var isLoading: Bool = OpenAIService().isLoading
+    
+    @State var lastMessageID: String = ""
+    
+    
+    @State var cancellables = Set<AnyCancellable>()
     
     var body: some View {
         VStack {
-            List(chatMessages, id: \.self) { message in
-                Text(message)
+            HStack {
+                Text("Chat with us")
+                    .font(.title)
+                    .fontWeight(.bold)
+                Spacer()
             }
             
-            TextField("Type your message", text: $userInput, onCommit: sendMessage)
-                .padding()
-                .textFieldStyle(RoundedBorderTextFieldStyle())
+            ScrollViewReader { proxy in
+                ScrollView(.vertical, showsIndicators: false) {
+                    LazyVStack {
+                        ForEach(chatMessages, id: \.id) { message in
+                            MessageView(message: message)
+                        }
+                    }
+                }
+                .onChange(of: self.lastMessageID) { id in
+                    withAnimation{
+                        proxy.scrollTo(id, anchor: .bottom)
+                    }
+                }
+            }
+            
+            HStack {
+                TextField("Enter a message", text: $message) {}
+                    .padding()
+                    .background(.gray.opacity(0.4))
+                    .cornerRadius(12)
+                Button{
+                    sendMessage()
+                } label: {
+                    Image(systemName: "arrow.right.circle.fill")
+                        .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
+                        .padding(.horizontal, 5)
+                        .font(.largeTitle)
+                        
+                }
+            }
         }
+        .padding()
     }
-    
+        
     func sendMessage() {
-        // Send the user's message to the chatbot API
-        // Handle API response and update chatMessages with chatbots reply
-        // Clear the userInput field
+        guard !message.isEmpty else { return }
+        
+        let myMessage = ChatMessage(id: UUID().uuidString, content: message, createdAt: Date(), sender: .me)
+        chatMessages.append(myMessage)
+        lastMessageID = myMessage.id
+        
+        openAIService.sendMessage(message: message)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    print("Error sending message: \(error.localizedDescription)")
+                    // Handle error appropriately (e.g., show an error message)
+                    
+                case .finished:
+                    break
+                }
+            } receiveValue: { response in
+                guard let textResponse = response.choices.first?.text.trimmingCharacters(in: .whitespacesAndNewlines.union(.init(charactersIn: "\""))) else { return }
+                
+                let chatGPTMessage = ChatMessage(id: response.id, content: textResponse, createdAt: Date(), sender: .chatGPT)
+                
+                chatMessages.append(chatGPTMessage)
+                lastMessageID = chatGPTMessage.id
+            }
+            .store(in: &cancellables)
+        
+        message = ""
     }
+
 }
 
 struct chatbot_Previews: PreviewProvider {

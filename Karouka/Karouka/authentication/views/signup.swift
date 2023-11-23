@@ -4,6 +4,9 @@ struct signup: View {
     @State private var isUserAgreePolicy = false
     @State private var fullName = ""
     @State private var email = ""
+    @State private var infant = ""
+    @State private var profilepic = ""
+    @State private var cribID = ""
     @State private var ConfirmE = ""
     @State private var password = ""
     @State private var ConfirmP = ""
@@ -45,11 +48,14 @@ struct signup: View {
                         .autocapitalization(.none)
                         
                         
-//                    InputView(text: $ConfirmE, title: "Confirm your email", placeholder: "email")
-//                    .keyboardType(.emailAddress)
-//                    .autocapitalization(.none)
-                    }
-//                    
+                        InputView(text: $infant, title: "Enter your Baby's name", placeholder: "Infant")
+                        .autocapitalization(.none)
+                        }
+                    
+                        InputView(text: $cribID, title: "Enter the KaroukaID", placeholder: "ID")
+                        .autocapitalization(.none)
+                    
+                   
                         
                     InputView(text: $password, title: "Enter your Password", placeholder: "Password", isSecuredField: true)
                     .autocapitalization(.none)
@@ -85,8 +91,7 @@ struct signup: View {
                     Button {
                        
                         Task{
-                            try await viewModel.createUser(withEmail: email, password: password, fullname: fullName)
-                            
+                            try await viewModel.createUser(withEmail: email, password: password, fullname: fullName, infant: infant, cribID: cribID, profilepic: "person")
                         
                             
                         }

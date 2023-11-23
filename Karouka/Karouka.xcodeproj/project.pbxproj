@@ -23,6 +23,15 @@
 		62A25AC62AC700E400B90F7C /* signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25AC52AC700E400B90F7C /* signup.swift */; };
 		62A25ACC2ACC2ED300B90F7C /* homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25ACB2ACC2ED300B90F7C /* homepage.swift */; };
 		62A25ACE2ACC3BA900B90F7C /* chatbot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25ACD2ACC3BA900B90F7C /* chatbot.swift */; };
+		62BECAF42B0CBB0600B0A9F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECAF32B0CBB0600B0A9F0 /* Constants.swift */; };
+		62BECAF62B0CBC6700B0A9F0 /* ChatMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECAF52B0CBC6700B0A9F0 /* ChatMessageModel.swift */; };
+		62BECAF92B0CBCCE00B0A9F0 /* OpenAICompletionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECAF82B0CBCCE00B0A9F0 /* OpenAICompletionsModel.swift */; };
+		62BECAFB2B0CBCF700B0A9F0 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECAFA2B0CBCF700B0A9F0 /* OpenAIService.swift */; };
+		62BECAFE2B0CBE3200B0A9F0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 62BECAFD2B0CBE3200B0A9F0 /* Alamofire */; };
+		62BECB002B0CBF7600B0A9F0 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECAFF2B0CBF7600B0A9F0 /* MessageView.swift */; };
+		62BECB022B0FBA8800B0A9F0 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECB012B0FBA8800B0A9F0 /* AccountSettings.swift */; };
+		62BECB042B0FBC0B00B0A9F0 /* InfantsProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECB032B0FBC0B00B0A9F0 /* InfantsProfile.swift */; };
+		62BECB062B100B1F00B0A9F0 /* InfantProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECB052B100B1F00B0A9F0 /* InfantProfile.swift */; };
 		62C42E282ADDDB7B00D3D205 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 62C42E272ADDDB7B00D3D205 /* GoogleService-Info.plist */; };
 		62C42E2B2ADDE20E00D3D205 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 62C42E2A2ADDE20E00D3D205 /* FirebaseAnalytics */; };
 		62C42E2D2ADDE20E00D3D205 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 62C42E2C2ADDE20E00D3D205 /* FirebaseAnalyticsOnDeviceConversion */; };
@@ -76,6 +85,14 @@
 		62A25AC52AC700E400B90F7C /* signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signup.swift; sourceTree = "<group>"; };
 		62A25ACB2ACC2ED300B90F7C /* homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homepage.swift; sourceTree = "<group>"; };
 		62A25ACD2ACC3BA900B90F7C /* chatbot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatbot.swift; sourceTree = "<group>"; };
+		62BECAF32B0CBB0600B0A9F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		62BECAF52B0CBC6700B0A9F0 /* ChatMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageModel.swift; sourceTree = "<group>"; };
+		62BECAF82B0CBCCE00B0A9F0 /* OpenAICompletionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICompletionsModel.swift; sourceTree = "<group>"; };
+		62BECAFA2B0CBCF700B0A9F0 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		62BECAFF2B0CBF7600B0A9F0 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		62BECB012B0FBA8800B0A9F0 /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
+		62BECB032B0FBC0B00B0A9F0 /* InfantsProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfantsProfile.swift; sourceTree = "<group>"; };
+		62BECB052B100B1F00B0A9F0 /* InfantProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfantProfile.swift; sourceTree = "<group>"; };
 		62C42E272ADDDB7B00D3D205 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		62C42E632ADF1D7E00D3D205 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		62C42E662ADF25AA00D3D205 /* user.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
@@ -99,6 +116,7 @@
 				62C42E532ADDE20F00D3D205 /* FirebaseMLModelDownloader in Frameworks */,
 				62C42E472ADDE20F00D3D205 /* FirebaseFirestoreSwift in Frameworks */,
 				62C42E312ADDE20E00D3D205 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				62BECAFE2B0CBE3200B0A9F0 /* Alamofire in Frameworks */,
 				62C42E372ADDE20E00D3D205 /* FirebaseAuth in Frameworks */,
 				62C42E3B2ADDE20E00D3D205 /* FirebaseCrashlytics in Frameworks */,
 				62C42E5B2ADDE20F00D3D205 /* FirebaseRemoteConfigSwift in Frameworks */,
@@ -141,6 +159,7 @@
 		624368AA2AC2AE67005667B7 /* Karouka */ = {
 			isa = PBXGroup;
 			children = (
+				62BECAF72B0CBC9700B0A9F0 /* CChat */,
 				624368AB2AC2AE67005667B7 /* KaroukaApp.swift */,
 				62C42E732ADF474B00D3D205 /* master */,
 				62C42E6B2ADF2CDB00D3D205 /* authentication */,
@@ -161,6 +180,18 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		62BECAF72B0CBC9700B0A9F0 /* CChat */ = {
+			isa = PBXGroup;
+			children = (
+				62BECAF32B0CBB0600B0A9F0 /* Constants.swift */,
+				62BECAF52B0CBC6700B0A9F0 /* ChatMessageModel.swift */,
+				62BECAF82B0CBCCE00B0A9F0 /* OpenAICompletionsModel.swift */,
+				62BECAFA2B0CBCF700B0A9F0 /* OpenAIService.swift */,
+				62BECAFF2B0CBF7600B0A9F0 /* MessageView.swift */,
+			);
+			path = CChat;
+			sourceTree = "<group>";
+		};
 		62C42E652ADF258800D3D205 /* components */ = {
 			isa = PBXGroup;
 			children = (
@@ -170,6 +201,7 @@
 				626F4D2A2AF0F411005A69B6 /* AddActivity.swift */,
 				620150122AF2FBCE006395A1 /* Activity.swift */,
 				620150142AF2FD67006395A1 /* ActivityManager.swift */,
+				62BECB052B100B1F00B0A9F0 /* InfantProfile.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -186,6 +218,8 @@
 				62796B7B2AF9242F00AAFC5D /* NurseView.swift */,
 				62796B792AF923C100AAFC5D /* DiaperView.swift */,
 				620150162AF30037006395A1 /* history.swift */,
+				62BECB012B0FBA8800B0A9F0 /* AccountSettings.swift */,
+				62BECB032B0FBC0B00B0A9F0 /* InfantsProfile.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -267,6 +301,7 @@
 				62C42E5A2ADDE20F00D3D205 /* FirebaseRemoteConfigSwift */,
 				62C42E5C2ADDE20F00D3D205 /* FirebaseStorage */,
 				62C42E5E2ADDE20F00D3D205 /* FirebaseStorageCombine-Community */,
+				62BECAFD2B0CBE3200B0A9F0 /* Alamofire */,
 			);
 			productName = Karouka;
 			productReference = 624368A82AC2AE67005667B7 /* Karouka.app */;
@@ -280,7 +315,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					624368A72AC2AE67005667B7 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -298,6 +333,7 @@
 			mainGroup = 6243689F2AC2AE67005667B7;
 			packageReferences = (
 				62C42E292ADDE20E00D3D205 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				62BECAFC2B0CBE3200B0A9F0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 624368A92AC2AE67005667B7 /* Products */;
 			projectDirPath = "";
@@ -335,17 +371,25 @@
 				62A25ACE2ACC3BA900B90F7C /* chatbot.swift in Sources */,
 				620150132AF2FBCE006395A1 /* Activity.swift in Sources */,
 				62A25AC62AC700E400B90F7C /* signup.swift in Sources */,
+				62BECAF62B0CBC6700B0A9F0 /* ChatMessageModel.swift in Sources */,
+				62BECB022B0FBA8800B0A9F0 /* AccountSettings.swift in Sources */,
 				626F4D292AF0006B005A69B6 /* VitalSign.swift in Sources */,
+				62BECAFB2B0CBCF700B0A9F0 /* OpenAIService.swift in Sources */,
+				62BECAF92B0CBCCE00B0A9F0 /* OpenAICompletionsModel.swift in Sources */,
 				62F04D4D2AEFDFB60076CBC4 /* home.swift in Sources */,
+				62BECB062B100B1F00B0A9F0 /* InfantProfile.swift in Sources */,
+				62BECAF42B0CBB0600B0A9F0 /* Constants.swift in Sources */,
 				62C42E702ADF2FFE00D3D205 /* AuthViewModel.swift in Sources */,
 				620150152AF2FD67006395A1 /* ActivityManager.swift in Sources */,
 				62796B7E2AF9246000AAFC5D /* MedsView.swift in Sources */,
 				62C42E672ADF25AA00D3D205 /* user.swift in Sources */,
 				62A25AC42AC700CC00B90F7C /* login.swift in Sources */,
 				62796B7A2AF923C100AAFC5D /* DiaperView.swift in Sources */,
+				62BECB042B0FBC0B00B0A9F0 /* InfantsProfile.swift in Sources */,
 				62A25ACC2ACC2ED300B90F7C /* homepage.swift in Sources */,
 				62796B7C2AF9242F00AAFC5D /* NurseView.swift in Sources */,
 				624368AC2AC2AE67005667B7 /* KaroukaApp.swift in Sources */,
+				62BECB002B0CBF7600B0A9F0 /* MessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +433,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -450,6 +495,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -550,17 +596,30 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		62BECAFC2B0CBE3200B0A9F0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
 		62C42E292ADDE20E00D3D205 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 9.0.0;
+				minimumVersion = 10.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		62BECAFD2B0CBE3200B0A9F0 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 62BECAFC2B0CBE3200B0A9F0 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		62C42E2A2ADDE20E00D3D205 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 62C42E292ADDE20E00D3D205 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

@@ -13,6 +13,7 @@ struct InfantsProfile: View {
     @State private var updatedWeight = ""
     @State private var updatedAge = ""
     @State private var updatedBloodType = ""
+    @State private var isSaving = false
 
     var body: some View {
         VStack {
@@ -45,6 +46,7 @@ struct InfantsProfile: View {
                             Text(infantProfileViewModel.infant?.bloodType ?? "")
                         }
                     }
+                    // Include other fields as needed
                 }
             }
             .disabled(!isEditing)
@@ -59,12 +61,23 @@ struct InfantsProfile: View {
 
                 if isEditing {
                     Button(action: {
-                        // Saving functionality not implemented
-                        isEditing.toggle()
+                        isSaving = true
+
+                        DispatchQueue.main.async {
+                            infantProfileViewModel.updateInfantProfile(
+                                weight: updatedWeight,
+                                age: updatedAge,
+                                bloodType: updatedBloodType
+                                // Pass other updated fields
+                            )
+                            isSaving = false
+                            isEditing = false
+                        }
                     }, label: {
                         Text("Save")
                             .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
                     })
+                    .disabled(isSaving)
                 }
             }
             .padding()
@@ -72,6 +85,7 @@ struct InfantsProfile: View {
         .background(Color(red: 265/255, green: 190/255, blue: 230/255).opacity(0.4))
     }
 }
+
 
 
 

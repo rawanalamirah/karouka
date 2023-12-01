@@ -13,6 +13,8 @@ struct KaroukaApp: App {
     @StateObject var viewModel = AuthViewModel()
     @StateObject var activityManager = ActivityManager()
     @StateObject var infantProfileViewModel = InfantProfileViewModel()
+    @StateObject var patientModel = PatientDataViewModel()
+    
     
     init() {
         FirebaseApp.configure()
@@ -23,6 +25,7 @@ struct KaroukaApp: App {
                 .environmentObject(viewModel)
                 .environmentObject(activityManager)
                 .environmentObject(infantProfileViewModel)
+                .environmentObject(patientModel)
                 
         }
     }

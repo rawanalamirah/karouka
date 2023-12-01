@@ -31,6 +31,8 @@ struct home: View {
     @State private var nurseSheet = false
     @State private var medsSheet = false
     @EnvironmentObject var activityManager : ActivityManager
+    @EnvironmentObject var patientModel : PatientDataViewModel
+    
     @State private var imagedata: Data?
 
     var body: some View {
@@ -81,14 +83,16 @@ struct home: View {
 
                                             VStack {
                                                 HStack (spacing: 80){
-                                                    VitalSign(title: "Temperature", text: "37ºC")
-
-                                                    VitalSign(title: "Heart Rate", text: "100 BPM")
+                                                    
+                                                    VitalSign(title: "Heart Rate", text: "\(patientModel.heartRate)")
+                                                    
+                                                    VitalSign(title: "O Sat Level", text: "\(patientModel.o2)")
+                                                    
                                                 }.padding()
                                                 HStack (spacing: 80) {
-                                                    VitalSign(title: "Breathing Rate", text: "100 pm")
-                                                  
-                                                    VitalSign(title: "O Sat Level", text: "97%")
+                                                    
+                                                    VitalSign(title: "Temperature", text: "\(patientModel.temp)")
+                                                    
                                                 }.padding()
                                             }
                                         }
@@ -106,26 +110,63 @@ struct home: View {
                                             HStack {
                                                 Toggle("Rocking", isOn: $rockingMotion)
                                                     .padding()
+                                                    .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
                                                     .background(Color(.white))
                                                     .cornerRadius(15)
+                                                    .onChange(of: rockingMotion) { newValue in
+                                                        patientModel.updateServo(newValue: newValue)
+                                                    }
                                                 Toggle("Sound", isOn: $sound)
                                                     .padding()
+                                                    .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
                                                     .background(Color(.white))
                                                     .cornerRadius(15)
+                                                    .onChange(of: sound) { newValue in
+                                                        patientModel.updateSong1(newValue: newValue)
+                                                    }
                                                 
                                             }.padding()
                                             
-                                            Button {} label: {
+                                            VStack {
                                                 Text("Return bed back to normal")
                                                     .font(.system(size: 20))
                                                     .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
-                                                    .underline()
-                                                    .padding()
-                                                    .frame(width: 360)
-                                                    .background(Color(.white))
-                                                    .cornerRadius(15)
                                                     
+                                                
+                                                HStack {
+                                                    
+                                                    Button {} label: {
+                                                        Text("Up")
+                                                            .font(.system(size: 20))
+                                                            .foregroundColor(.white)
+                                                            .padding()
+                                                            .frame(width: 125)
+                                                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                                            .cornerRadius(15)
+                                                            
+                                                    }
+                                                    
+                                                    Button {} label: {
+                                                        Text("Down")
+                                                            .font(.system(size: 20))
+                                                            .foregroundColor(.white)
+                                                            .padding()
+                                                            .frame(width: 125)
+                                                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                                            .cornerRadius(15)
+                                                            
+                                                    }
+
+                                                }
+
                                             }
+                                            .padding()
+                                            .frame(width: 360)
+                                            .background(Color(.white))
+                                            .cornerRadius(15)
+                                                
+                                            
+                                            
                                         }
                                         
                                         HStack {
@@ -171,7 +212,7 @@ struct home: View {
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
                 }
-            }
+            }.refreshable { await refreshData() }
         }
     }
 
@@ -184,11 +225,15 @@ struct home: View {
                     self.imagedata = data
                 }
             } else {
-                // Handle error cases appropriately
+                // Handle error 
                 print("Error fetching camera image:", error?.localizedDescription ?? "Unknown error")
             }
         }.resume()
     }
+}
+
+@Sendable func refreshData() async {
+    try? await Task.sleep(nanoseconds: 5_000_000_000)
 }
 
 

@@ -10,6 +10,9 @@
 		620150132AF2FBCE006395A1 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620150122AF2FBCE006395A1 /* Activity.swift */; };
 		620150152AF2FD67006395A1 /* ActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620150142AF2FD67006395A1 /* ActivityManager.swift */; };
 		620150172AF30037006395A1 /* history.swift in Sources */ = {isa = PBXBuildFile; fileRef = 620150162AF30037006395A1 /* history.swift */; };
+		622A1B022B1BFB80002A81A2 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A1B012B1BFB80002A81A2 /* constants.swift */; };
+		622A1B042B1BFBD2002A81A2 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A1B032B1BFBD2002A81A2 /* OpenAIService.swift */; };
+		622A1B062B1C07F4002A81A2 /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622A1B052B1C07F4002A81A2 /* ChatViewModel.swift */; };
 		624368AC2AC2AE67005667B7 /* KaroukaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624368AB2AC2AE67005667B7 /* KaroukaApp.swift */; };
 		624368B02AC2AE6C005667B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 624368AF2AC2AE6C005667B7 /* Assets.xcassets */; };
 		624368B32AC2AE6C005667B7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 624368B22AC2AE6C005667B7 /* Preview Assets.xcassets */; };
@@ -23,12 +26,7 @@
 		62A25AC62AC700E400B90F7C /* signup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25AC52AC700E400B90F7C /* signup.swift */; };
 		62A25ACC2ACC2ED300B90F7C /* homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25ACB2ACC2ED300B90F7C /* homepage.swift */; };
 		62A25ACE2ACC3BA900B90F7C /* chatbot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A25ACD2ACC3BA900B90F7C /* chatbot.swift */; };
-		62BECAF42B0CBB0600B0A9F0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECAF32B0CBB0600B0A9F0 /* Constants.swift */; };
-		62BECAF62B0CBC6700B0A9F0 /* ChatMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECAF52B0CBC6700B0A9F0 /* ChatMessageModel.swift */; };
-		62BECAF92B0CBCCE00B0A9F0 /* OpenAICompletionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECAF82B0CBCCE00B0A9F0 /* OpenAICompletionsModel.swift */; };
-		62BECAFB2B0CBCF700B0A9F0 /* OpenAIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECAFA2B0CBCF700B0A9F0 /* OpenAIService.swift */; };
 		62BECAFE2B0CBE3200B0A9F0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 62BECAFD2B0CBE3200B0A9F0 /* Alamofire */; };
-		62BECB002B0CBF7600B0A9F0 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECAFF2B0CBF7600B0A9F0 /* MessageView.swift */; };
 		62BECB022B0FBA8800B0A9F0 /* AccountSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECB012B0FBA8800B0A9F0 /* AccountSettings.swift */; };
 		62BECB042B0FBC0B00B0A9F0 /* InfantsProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECB032B0FBC0B00B0A9F0 /* InfantsProfile.swift */; };
 		62BECB062B100B1F00B0A9F0 /* InfantProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62BECB052B100B1F00B0A9F0 /* InfantProfile.swift */; };
@@ -72,6 +70,9 @@
 		620150122AF2FBCE006395A1 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		620150142AF2FD67006395A1 /* ActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityManager.swift; sourceTree = "<group>"; };
 		620150162AF30037006395A1 /* history.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = history.swift; sourceTree = "<group>"; };
+		622A1B012B1BFB80002A81A2 /* constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
+		622A1B032B1BFBD2002A81A2 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
+		622A1B052B1C07F4002A81A2 /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		624368A82AC2AE67005667B7 /* Karouka.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Karouka.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		624368AB2AC2AE67005667B7 /* KaroukaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KaroukaApp.swift; sourceTree = "<group>"; };
 		624368AF2AC2AE6C005667B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -86,11 +87,6 @@
 		62A25AC52AC700E400B90F7C /* signup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signup.swift; sourceTree = "<group>"; };
 		62A25ACB2ACC2ED300B90F7C /* homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homepage.swift; sourceTree = "<group>"; };
 		62A25ACD2ACC3BA900B90F7C /* chatbot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatbot.swift; sourceTree = "<group>"; };
-		62BECAF32B0CBB0600B0A9F0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		62BECAF52B0CBC6700B0A9F0 /* ChatMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageModel.swift; sourceTree = "<group>"; };
-		62BECAF82B0CBCCE00B0A9F0 /* OpenAICompletionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAICompletionsModel.swift; sourceTree = "<group>"; };
-		62BECAFA2B0CBCF700B0A9F0 /* OpenAIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAIService.swift; sourceTree = "<group>"; };
-		62BECAFF2B0CBF7600B0A9F0 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		62BECB012B0FBA8800B0A9F0 /* AccountSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettings.swift; sourceTree = "<group>"; };
 		62BECB032B0FBC0B00B0A9F0 /* InfantsProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfantsProfile.swift; sourceTree = "<group>"; };
 		62BECB052B100B1F00B0A9F0 /* InfantProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfantProfile.swift; sourceTree = "<group>"; };
@@ -142,9 +138,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		622A1B002B1BF39D002A81A2 /* chat */ = {
+			isa = PBXGroup;
+			children = (
+				622A1B012B1BFB80002A81A2 /* constants.swift */,
+				622A1B032B1BFBD2002A81A2 /* OpenAIService.swift */,
+				622A1B052B1C07F4002A81A2 /* ChatViewModel.swift */,
+			);
+			path = chat;
+			sourceTree = "<group>";
+		};
 		6243689F2AC2AE67005667B7 = {
 			isa = PBXGroup;
 			children = (
+				622A1B002B1BF39D002A81A2 /* chat */,
 				62BECB072B14F65B00B0A9F0 /* rrealtime */,
 				624368AA2AC2AE67005667B7 /* Karouka */,
 				624368A92AC2AE67005667B7 /* Products */,
@@ -162,7 +169,6 @@
 		624368AA2AC2AE67005667B7 /* Karouka */ = {
 			isa = PBXGroup;
 			children = (
-				62BECAF72B0CBC9700B0A9F0 /* CChat */,
 				624368AB2AC2AE67005667B7 /* KaroukaApp.swift */,
 				62C42E732ADF474B00D3D205 /* master */,
 				62C42E6B2ADF2CDB00D3D205 /* authentication */,
@@ -181,18 +187,6 @@
 				624368B22AC2AE6C005667B7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		62BECAF72B0CBC9700B0A9F0 /* CChat */ = {
-			isa = PBXGroup;
-			children = (
-				62BECAF32B0CBB0600B0A9F0 /* Constants.swift */,
-				62BECAF52B0CBC6700B0A9F0 /* ChatMessageModel.swift */,
-				62BECAF82B0CBCCE00B0A9F0 /* OpenAICompletionsModel.swift */,
-				62BECAFA2B0CBCF700B0A9F0 /* OpenAIService.swift */,
-				62BECAFF2B0CBF7600B0A9F0 /* MessageView.swift */,
-			);
-			path = CChat;
 			sourceTree = "<group>";
 		};
 		62BECB072B14F65B00B0A9F0 /* rrealtime */ = {
@@ -380,18 +374,16 @@
 				620150172AF30037006395A1 /* history.swift in Sources */,
 				626F4D2B2AF0F411005A69B6 /* AddActivity.swift in Sources */,
 				62BECB092B14F67600B0A9F0 /* patientdata.swift in Sources */,
+				622A1B062B1C07F4002A81A2 /* ChatViewModel.swift in Sources */,
 				62A25ACE2ACC3BA900B90F7C /* chatbot.swift in Sources */,
 				620150132AF2FBCE006395A1 /* Activity.swift in Sources */,
 				62A25AC62AC700E400B90F7C /* signup.swift in Sources */,
-				62BECAF62B0CBC6700B0A9F0 /* ChatMessageModel.swift in Sources */,
 				62BECB022B0FBA8800B0A9F0 /* AccountSettings.swift in Sources */,
 				626F4D292AF0006B005A69B6 /* VitalSign.swift in Sources */,
-				62BECAFB2B0CBCF700B0A9F0 /* OpenAIService.swift in Sources */,
-				62BECAF92B0CBCCE00B0A9F0 /* OpenAICompletionsModel.swift in Sources */,
 				62F04D4D2AEFDFB60076CBC4 /* home.swift in Sources */,
 				62BECB062B100B1F00B0A9F0 /* InfantProfile.swift in Sources */,
-				62BECAF42B0CBB0600B0A9F0 /* Constants.swift in Sources */,
 				62C42E702ADF2FFE00D3D205 /* AuthViewModel.swift in Sources */,
+				622A1B042B1BFBD2002A81A2 /* OpenAIService.swift in Sources */,
 				620150152AF2FD67006395A1 /* ActivityManager.swift in Sources */,
 				62796B7E2AF9246000AAFC5D /* MedsView.swift in Sources */,
 				62C42E672ADF25AA00D3D205 /* user.swift in Sources */,
@@ -400,8 +392,8 @@
 				62BECB042B0FBC0B00B0A9F0 /* InfantsProfile.swift in Sources */,
 				62A25ACC2ACC2ED300B90F7C /* homepage.swift in Sources */,
 				62796B7C2AF9242F00AAFC5D /* NurseView.swift in Sources */,
+				622A1B022B1BFB80002A81A2 /* constants.swift in Sources */,
 				624368AC2AC2AE67005667B7 /* KaroukaApp.swift in Sources */,
-				62BECB002B0CBF7600B0A9F0 /* MessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

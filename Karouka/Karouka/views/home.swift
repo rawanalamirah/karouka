@@ -53,18 +53,21 @@ struct home: View {
                                 .shadow(color: .white, radius: 25, x: 5, y: 0)
                                 .overlay(
                                     Group {
+                                        VStack {
+                                            WebView(urlString: "http://172.20.10.10:8000/video")
+                                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                        }
                                         if let imageData = imagedata, let uiImage = UIImage(data: imageData) {
                                             Image(uiImage: uiImage)
                                                 .resizable()
                                                 .scaledToFit()
-                                        } else {
-                                            Text("Loading...")
                                         }
                                     }
                                 )
                                 .onAppear {
                                     fetchCameraImage()
                                 }
+                            
                         }
                     }
                     .cornerRadius(25)
@@ -144,23 +147,25 @@ struct home: View {
                                                     Button {} label: {
                                                         Image(systemName: "arrow.left")
                                                             .font(.system(size: 20))
-                                                            .frame(width: 125, height: 40)
                                                             .foregroundColor(.white)
-                                                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
-                                                            .cornerRadius(15)
-                                                            
-                                                    }.background(Color.clear)
+                                                            .background(Color.clear.opacity(0.5))
+
+                                                    }
+                                                    .frame(width: 125, height: 40)
+                                                    .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                                    .cornerRadius(15)
                                                     Spacer()
                                                     
                                                     Button {} label: {
                                                         Image(systemName: "arrow.right")
                                                             .font(.system(size: 20))
-                                                            .frame(width: 125, height: 40)
                                                             .foregroundColor(.white)
-                                                            .background(Color(red: 180/255, green: 200/255, blue: 255/255))
-                                                            .cornerRadius(15)
-                                                            
-                                                    }.background(Color.clear)
+                                                            .background(Color.clear.opacity(0.5))
+      
+                                                    }
+                                                    .frame(width: 125, height: 40)
+                                                    .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                                    .cornerRadius(15)
 
                                                 }
 
@@ -212,17 +217,14 @@ struct home: View {
                                         .padding(.bottom, 70)
                                         
                                         Spacer()
-                    VStack {
-                        WebView(urlString: "http://172.20.10.8:8000/video")
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    }
+                    
                 }
             }.refreshable { await refreshData() }
         }
     }
 
     func fetchCameraImage() {
-        let cameraURL = URL(string: "http://172.20.10.8:8000/video")!
+        let cameraURL = URL(string: "http://172.20.10.10:8000/video")!
 
         URLSession.shared.dataTask(with: cameraURL) { data, response, error in
             if let data = data {

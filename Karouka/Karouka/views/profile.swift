@@ -133,44 +133,20 @@ struct profile: View {
                     Text("sign out")
                         .font(.headline)
                         .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color(red: 180/255, green: 200/255, blue: 255/255))
-                        .cornerRadius(8)
+                        .padding(.leading)
+                        .padding(.trailing)
+                        .background(Color.clear)
                 }
-                .background(Color.clear)
+                .frame(maxWidth: .infinity)
+                .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                .cornerRadius(8)
                 .padding()
 
-                // Edit Profile Button
-//                Button{
-//
-//                } label: {
-//                    Text("Edit Profile")
-//                        .font(.headline)
-//                        .foregroundColor(.white)
-//                        .frame(maxWidth: .infinity)
-//                        .padding()
-//                        .background(Color(red: 180/255, green: 200/255, blue: 255/255))
-//                        .cornerRadius(8)
-//                }
-//                .padding()
+                
             }
         }.ignoresSafeArea()
 
         }
-//        Button{
-//            viewModel.signOut()
-//        } label:{
-//            Text("sign out")
-//                .font(.headline)
-//                .foregroundColor(.white)
-//                .frame(maxWidth: .infinity)
-//                .padding()
-//                .background(Color(red: 180/255, green: 200/255, blue: 255/255))
-//                .cornerRadius(8)
-//        }
-//        .padding()
-
     }
 }
 

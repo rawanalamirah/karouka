@@ -43,10 +43,10 @@ struct profile: View {
                 }
                 }
                 .padding()
-                .frame(width: 370, height: 120, alignment: .center)
+                .frame(width: 390, height: 130, alignment: .center)
                 .background(Color(.white))
                 .cornerRadius(25)
-                .padding(.bottom, 80)
+                .padding(.bottom, 100)
 //                Spacer()
                 
                 VStack {
@@ -121,7 +121,7 @@ struct profile: View {
                             }
                 }
                 .padding()
-                .frame(width: 370, height: 280, alignment: .center)
+                .frame(width: 390, height: 290, alignment: .center)
                 .background(Color(.white))
                 .cornerRadius(25)
                 .padding(.bottom, 60)
@@ -138,6 +138,7 @@ struct profile: View {
                         .background(Color(red: 180/255, green: 200/255, blue: 255/255))
                         .cornerRadius(8)
                 }
+                .background(Color.clear)
                 .padding()
 
                 // Edit Profile Button
@@ -176,6 +177,7 @@ struct profile: View {
 struct Profile_Previews: PreviewProvider {
     static var previews: some View {
         profile()
+            .environmentObject(AuthViewModel())
     }
 }
 

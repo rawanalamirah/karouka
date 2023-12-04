@@ -67,6 +67,9 @@ struct home: View {
                                 }
                         }
                     }
+                    .cornerRadius(25)
+                    .frame(width: 360, height: 200)
+                    .padding(.top, 30)
                     HStack {
                                             Text("Vital Signs")
                                                 .bold()
@@ -79,10 +82,10 @@ struct home: View {
                                             Rectangle()
                                                 .fill(.white)
                                                 .cornerRadius(25)
-                                                .frame(width: 350, height: 280, alignment: .center)
+                                                .frame(width: 390, height: 280, alignment: .center)
 
                                             VStack {
-                                                HStack (spacing: 80){
+                                                HStack (spacing: 90){
                                                     
                                                     VitalSign(title: "Heart Rate", text: "\(patientModel.heartRate)")
                                                     
@@ -128,40 +131,42 @@ struct home: View {
                                             }.padding()
                                             
                                             VStack {
-                                                Text("Return bed back to normal")
+                                                Text("Bed Inclination")
+                                                    .font(.system(size: 30))
+                                                    .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                                Text("which side would you like to decline?")
                                                     .font(.system(size: 20))
                                                     .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
                                                     
                                                 
-                                                HStack {
+                                                HStack (spacing: 30){
                                                     
                                                     Button {} label: {
-                                                        Text("Up")
+                                                        Image(systemName: "arrow.left")
                                                             .font(.system(size: 20))
+                                                            .frame(width: 125, height: 40)
                                                             .foregroundColor(.white)
-                                                            .padding()
-                                                            .frame(width: 125)
                                                             .background(Color(red: 180/255, green: 200/255, blue: 255/255))
                                                             .cornerRadius(15)
                                                             
-                                                    }
+                                                    }.background(Color.clear)
+                                                    Spacer()
                                                     
                                                     Button {} label: {
-                                                        Text("Down")
+                                                        Image(systemName: "arrow.right")
                                                             .font(.system(size: 20))
+                                                            .frame(width: 125, height: 40)
                                                             .foregroundColor(.white)
-                                                            .padding()
-                                                            .frame(width: 125)
                                                             .background(Color(red: 180/255, green: 200/255, blue: 255/255))
                                                             .cornerRadius(15)
                                                             
-                                                    }
+                                                    }.background(Color.clear)
 
                                                 }
 
                                             }
                                             .padding()
-                                            .frame(width: 360)
+                                            .frame(width: 390)
                                             .background(Color(.white))
                                             .cornerRadius(15)
                                                 
@@ -178,7 +183,7 @@ struct home: View {
                                             Spacer()
                                         }
                                         
-                                        HStack (spacing: 45){
+                                        HStack (spacing: 60){
                                             
                                             VStack {
                                             AddActivity(title: "Diaper", icon: Image("diaper"))
@@ -204,7 +209,7 @@ struct home: View {
                                         .padding()
                                         .background(Color(.white))
                                         .cornerRadius(15)
-                                        .padding(.bottom, 80)
+                                        .padding(.bottom, 70)
                                         
                                         Spacer()
                     VStack {
@@ -242,5 +247,6 @@ struct home: View {
 struct home_Previews: PreviewProvider {
     static var previews: some View {
         home()
+            .environmentObject(PatientDataViewModel())
     }
 }

@@ -25,10 +25,10 @@ struct chatbot: View {
                 } label: {
                     Text("Send")
                         .foregroundColor(.white)
-                        .padding()
+                        .frame(width: 80, height: 45, alignment: .center)
                         .background(Color(red: 180/255, green: 200/255, blue: 255/255))
                         .cornerRadius(12)
-                }
+                }.background(Color.clear)
             }
         }
         .padding()

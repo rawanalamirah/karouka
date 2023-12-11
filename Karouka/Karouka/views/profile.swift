@@ -137,7 +137,7 @@ struct profile: View {
                         .padding(.trailing)
                         .background(Color.clear)
                 }
-                .frame(maxWidth: .infinity)
+                .frame(maxWidth: .infinity, maxHeight: 50)
                 .background(Color(red: 180/255, green: 200/255, blue: 255/255))
                 .cornerRadius(8)
                 .padding()

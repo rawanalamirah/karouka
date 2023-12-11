@@ -14,6 +14,7 @@ class PatientDataViewModel: ObservableObject {
     @Published var O2: String = "0"
     @Published var temp: String = "0"
     @Published var heartRate: String = "0"
+    @Published var newTemp: String = "0"
     
     private var ref: DatabaseReference!
     private var cancellable: AnyCancellable?
@@ -24,6 +25,8 @@ class PatientDataViewModel: ObservableObject {
         // Fetch initial data and observe changes
         fetchData()
         observeDataChanges()
+        splitTemp()
+        
     }
     
     func fetchData() {
@@ -71,6 +74,19 @@ class PatientDataViewModel: ObservableObject {
     func updateSong1(newValue: Bool) {
         let intValue = newValue ? "2" : "0"
         updateValue(for: "song1", newValue: intValue)
+    }
+    
+    func splitTemp() {
+        ref.observe(.value) { snapshot in
+            if let value = snapshot.value as? [String: Any] {
+                self.temp = value["temp"] as? String ?? "0.0"
+                print(self.temp)
+                let parts = self.temp.components(separatedBy: ".")
+                let newtemp = parts[0]
+                self.newTemp = newtemp
+            }
+        }
+        
     }
     
     private func updateValue(for key: String, newValue: String) {

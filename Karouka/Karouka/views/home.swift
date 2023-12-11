@@ -54,7 +54,7 @@ struct home: View {
                                 .overlay(
                                     Group {
                                         VStack {
-                                            WebView(urlString: "http://172.20.10.10:8000/video")
+                                            WebView(urlString: "http://172.20.10.8:8000/video")
                                                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                                         }
                                         if let imageData = imagedata, let uiImage = UIImage(data: imageData) {
@@ -94,7 +94,7 @@ struct home: View {
                                                     
                                                     VitalSign(title: "O2 Sat Level", text: patientModel.O2, unit: "%")
                                                     
-                                                    VitalSign(title: "Temperature", text: patientModel.temp, unit: "ºC")
+                                                    VitalSign(title: "Temperature", text: patientModel.newTemp, unit: "ºC")
                                                     
                                                 }.padding()
                                                 
@@ -232,7 +232,7 @@ struct home: View {
     }
 
     func fetchCameraImage() {
-        let cameraURL = URL(string: "http://172.20.10.10:8000/video")!
+        let cameraURL = URL(string: "http://172.20.10.8:8000/video")!
 
         URLSession.shared.dataTask(with: cameraURL) { data, response, error in
             if let data = data {
@@ -250,6 +250,8 @@ struct home: View {
 @Sendable func refreshData() async {
     try? await Task.sleep(nanoseconds: 5_000_000_000)
 }
+
+
 
 
 

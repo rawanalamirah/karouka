@@ -28,6 +28,7 @@ struct history: View {
 
     @Sendable func refreshData() async {
         try? await Task.sleep(nanoseconds: 5_000_000_000)
+        activityManager.fetchActivity()
     }
 
     func formatDate(date: Date) -> String {

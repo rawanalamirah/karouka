@@ -11,14 +11,16 @@ struct InfantsProfile: View {
     @EnvironmentObject var infantProfileViewModel: InfantProfileViewModel
     @State private var isEditing = false
     @State private var updatedWeight = ""
-    @State private var updatedAge = ""
     @State private var updatedBloodType = ""
+    @State private var birthDate = Date()
+    @State private var ageInMonths = 0
+    @State private var ageInDays = 0
     @State private var isSaving = false
 
     var body: some View {
         VStack {
             Form {
-                Section(header: Text("Health Information")) {
+                Section(header: Text("Infant Information")) {
                     HStack {
                         Text("Weight:")
                         Spacer()
@@ -28,13 +30,26 @@ struct InfantsProfile: View {
                             Text(infantProfileViewModel.infant?.weight ?? "")
                         }
                     }
+                    VStack {
+                        HStack {
+                            Text("Birth Date:")
+                            Spacer()
+                            Text("\(formattedDate(birthDate: birthDate))")
+                        }
+                        if isEditing {
+                            DatePicker("", selection: $birthDate, displayedComponents: .date)
+                                .labelsHidden()
+                                .datePickerStyle(WheelDatePickerStyle())
+                                .padding(.leading, 15)
+                        }
+                    }
                     HStack {
                         Text("Age:")
                         Spacer()
-                        if isEditing {
-                            TextField("Enter age", text: $updatedAge)
+                        if !isEditing {
+                            Text("\(ageInMonths) months \(ageInDays) days")
                         } else {
-                            Text(infantProfileViewModel.infant?.age ?? "")
+                            Spacer() // Placeholder for alignment
                         }
                     }
                     HStack {
@@ -62,11 +77,11 @@ struct InfantsProfile: View {
                 if isEditing {
                     Button(action: {
                         isSaving = true
-
+                        calculateAge()
                         DispatchQueue.main.async {
                             infantProfileViewModel.updateInfantProfile(
                                 weight: updatedWeight,
-                                age: updatedAge,
+                                age: "\(ageInMonths) months \(ageInDays) days",
                                 bloodType: updatedBloodType
                                 // Pass other updated fields
                             )
@@ -83,11 +98,29 @@ struct InfantsProfile: View {
             .padding()
         }
         .background(Color(red: 265/255, green: 190/255, blue: 230/255).opacity(0.4))
+        .onAppear {
+            calculateAge() // Calculate age initially
+        }
+    }
+
+    func calculateAge() {
+        let calendar = Calendar.current
+        let currentDate = Date()
+
+        let components = calendar.dateComponents([.month, .day], from: birthDate, to: currentDate)
+
+        if let months = components.month, let days = components.day {
+            ageInMonths = abs(months)
+            ageInDays = abs(days)
+        }
+    }
+
+    func formattedDate(birthDate: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        return dateFormatter.string(from: birthDate)
     }
 }
-
-
-
 
 
 #Preview {

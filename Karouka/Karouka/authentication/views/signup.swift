@@ -12,6 +12,11 @@ struct signup: View {
     @State private var ConfirmP = ""
     @EnvironmentObject var viewModel: AuthViewModel
     
+    
+    init(cribID: String) {
+            self._cribID = State(initialValue: cribID)
+        }
+    
     var body: some View {
         NavigationView{
             ScrollView{
@@ -130,6 +135,6 @@ extension signup: AuthenticationFormProtocol {
 
 struct SignUp_Previews: PreviewProvider {
     static var previews: some View {
-        signup()
+        signup(cribID: "")
     }
 }

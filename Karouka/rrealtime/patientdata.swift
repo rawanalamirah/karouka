@@ -7,12 +7,13 @@
 
 import SwiftUI
 import FirebaseDatabase
+import Firebase
 import Combine
 
 class PatientDataViewModel: ObservableObject {
-    @Published var o2: Double = 0.0
-    @Published var temp: Double = 0.0
-    @Published var heartRate: Double = 0.0
+    @Published var O2: String = "0"
+    @Published var temp: String = "0"
+    @Published var heartRate: String = "0"
     
     private var ref: DatabaseReference!
     private var cancellable: AnyCancellable?
@@ -27,57 +28,54 @@ class PatientDataViewModel: ObservableObject {
     
     func fetchData() {
         ref.observeSingleEvent(of: .value) { snapshot in
-            if let value = snapshot.value as? [String: Double] {
-                self.o2 = value["o2"] ?? 0.0
-                self.temp = value["temp"] ?? 0.0
-                self.heartRate = value["heartrate"] ?? 0.0
+            if let value = snapshot.value as? [String: Any] {
+                print("Fetched data:", value)
+                self.O2 = value["O2"] as? String ?? "0"
+                self.temp = value["temp"] as? String ?? "0.0"
+                self.heartRate = value["heartrate"] as? String ?? "0"
+            } else {
+                print("Failed to fetch data")
             }
         }
     }
-    
+
     func observeDataChanges() {
-            let subject = PassthroughSubject<DataSnapshot, Never>()
-            
-            cancellable = subject
-                .sink { snapshot in
-                    if let value = snapshot.value as? [String: Double] {
-                        self.o2 = value["o2"] ?? 0.0
-                        self.temp = value["temp"] ?? 0.0
-                        self.heartRate = value["heartrate"] ?? 0.0
-                    }
-                }
-            
-            ref.observe(.value) { snapshot in
-                subject.send(snapshot)
+        ref.observe(.value) { snapshot in
+            if let value = snapshot.value as? [String: Any] {
+                print("Data changes observed:", value)
+                self.O2 = value["O2"] as? String ?? "0"
+                self.temp = value["temp"] as? String ?? "0.0"
+                self.heartRate = value["heartrate"] as? String ?? "0"
+            } else {
+                print("Failed to observe data changes")
             }
         }
-    
+    }
+
     
     func updatePump1(newValue: Bool) {
-            let intValue = newValue ? 1 : 0
-            updateValue(for: "pump1", newValue: intValue)
-        }
-        
-        func updatePump2(newValue: Bool) {
-            let intValue = newValue ? 1 : 0
-            updateValue(for: "pump2", newValue: intValue)
-        }
+        let intValue = newValue ? "1" : "0"
+        updateValue(for: "pump1", newValue: intValue)
+    }
     
-    // Function to update servo value in the Realtime Database
+    func updatePump2(newValue: Bool) {
+        let intValue = newValue ? "2" : "0"
+        updateValue(for: "pump1", newValue: intValue)
+    }
+    
     func updateServo(newValue: Bool) {
-            let intValue = newValue ? 1 : 0
-            updateValue(for: "servo", newValue: intValue)
-        }
+        let intValue = newValue ? "1" : "0"
+        updateValue(for: "servo", newValue: intValue)
+    }
     
-    // Function to update song1 value in the Realtime Database
     func updateSong1(newValue: Bool) {
-            let intValue = newValue ? 1 : 0
-            updateValue(for: "song1", newValue: intValue)
-        }
+        let intValue = newValue ? "2" : "0"
+        updateValue(for: "song1", newValue: intValue)
+    }
     
-    private func updateValue(for key: String, newValue: Int) {
-           ref.child("patient1/\(key)").setValue(newValue)
-       }
+    private func updateValue(for key: String, newValue: String) {
+        ref.child(key).setValue(newValue)
+    }
     
     deinit {
         cancellable?.cancel()

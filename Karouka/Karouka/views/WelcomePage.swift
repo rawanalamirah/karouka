@@ -10,6 +10,11 @@ import Firebase
 
 struct WelcomePage: View {
     @EnvironmentObject var viewModel: AuthViewModel
+    @State private var isShowingScanner = false
+        @State private var scannedCribID: String = ""
+        @State private var navigateToSignup = false
+
+    
     var body: some View {
         NavigationView{
         VStack {
@@ -42,7 +47,7 @@ struct WelcomePage: View {
                 .padding(.top, 10)
             }.padding(.bottom, 80)
             
-            NavigationLink(destination: signup()) {
+            NavigationLink(destination: signup(cribID: "")) {
                 Text("Sign Up")
                     .font(.headline)
                     .foregroundColor(.white)
@@ -62,11 +67,48 @@ struct WelcomePage: View {
             }
             
             Spacer()
+                            
+            Button(action: {
+                                isShowingScanner.toggle()
+                            }) {
+                                Text("Pair with Crib")
+                                    .font(.caption)
+                                    .foregroundColor(.blue)
+                            }
+                            .padding(.bottom, 15)
+                            .sheet(isPresented: $isShowingScanner) {
+                                QRCodeScannerView { result in
+                                    scannedCribID = result
+                                    isShowingScanner = false // Close the scanner after obtaining the cribID
+                                    navigateToSignup = true // Navigate to Signup after obtaining the cribID
+                                }
+                            }
+                            .fullScreenCover(isPresented: $navigateToSignup) {
+                                signup(cribID: scannedCribID)
+                            }
+
+                            Spacer()
         }.ignoresSafeArea()
 
             
         }.navigationBarBackButtonHidden(true)
 }
+    func showCameraAccessAlert() {
+            let alert = UIAlertController(
+                title: "Camera Access",
+                message: "This feature requires access to your camera to scan QR codes.",
+                preferredStyle: .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+                isShowingScanner = true
+            })
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            
+            // Present the alert
+            // (For SwiftUI, you might use an appropriate way to present UIAlertControllers)
+        }
 }
 struct WelcomePage_Previews: PreviewProvider {
     static var previews: some View {

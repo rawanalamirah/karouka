@@ -85,21 +85,24 @@ struct home: View {
                                             Rectangle()
                                                 .fill(.white)
                                                 .cornerRadius(25)
-                                                .frame(width: 390, height: 280, alignment: .center)
+                                                .frame(width: 390, height: 180, alignment: .center)
 
                                             VStack {
-                                                HStack (spacing: 90){
+                                                HStack (spacing: 50){
                                                     
-                                                    VitalSign(title: "Heart Rate", text: "\(patientModel.heartRate)")
+                                                    VitalSign(title: "Heart Rate", text: patientModel.heartRate, unit: "BPM")
                                                     
-                                                    VitalSign(title: "O Sat Level", text: "\(patientModel.o2)")
+                                                    VitalSign(title: "O2 Sat Level", text: patientModel.O2, unit: "%")
                                                     
-                                                }.padding()
-                                                HStack (spacing: 80) {
-                                                    
-                                                    VitalSign(title: "Temperature", text: "\(patientModel.temp)")
+                                                    VitalSign(title: "Temperature", text: patientModel.temp, unit: "ºC")
                                                     
                                                 }.padding()
+                                                
+                                            } .onAppear {
+                                                patientModel.fetchData()
+                                                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                                                            patientModel.objectWillChange.send()
+                                                                        }
                                             }
                                         }
                                         
@@ -137,15 +140,17 @@ struct home: View {
                                                 Text("Bed Inclination")
                                                     .font(.system(size: 30))
                                                     .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
-                                                Text("which side would you like to decline?")
+                                                Text("Incline or Decline?")
                                                     .font(.system(size: 20))
                                                     .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
                                                     
                                                 
                                                 HStack (spacing: 30){
                                                     
-                                                    Button {} label: {
-                                                        Image(systemName: "arrow.left")
+                                                    Button {
+                                                        patientModel.updatePump1(newValue: true)
+                                                    } label: {
+                                                        Image(systemName: "arrow.up")
                                                             .font(.system(size: 20))
                                                             .foregroundColor(.white)
                                                             .background(Color.clear.opacity(0.5))
@@ -156,8 +161,11 @@ struct home: View {
                                                     .cornerRadius(15)
                                                     Spacer()
                                                     
-                                                    Button {} label: {
-                                                        Image(systemName: "arrow.right")
+                                                    
+                                                    Button {
+                                                        patientModel.updatePump2(newValue: true)
+                                                    } label: {
+                                                        Image(systemName: "arrow.down")
                                                             .font(.system(size: 20))
                                                             .foregroundColor(.white)
                                                             .background(Color.clear.opacity(0.5))

@@ -68,24 +68,22 @@ struct WelcomePage: View {
             
             Spacer()
                             
-            Button(action: {
-                                isShowingScanner.toggle()
-                            }) {
-                                Text("Pair with Crib")
-                                    .font(.caption)
-                                    .foregroundColor(.blue)
-                            }
-                            .padding(.bottom, 15)
-                            .sheet(isPresented: $isShowingScanner) {
-                                QRCodeScannerView { result in
-                                    scannedCribID = result
-                                    isShowingScanner = false // Close the scanner after obtaining the cribID
-                                    navigateToSignup = true // Navigate to Signup after obtaining the cribID
-                                }
-                            }
-                            .fullScreenCover(isPresented: $navigateToSignup) {
-                                signup(cribID: scannedCribID)
-                            }
+//            Button(action: {
+//                                isShowingScanner.toggle()
+//                            }) {
+//                                Text("Pair with Crib")
+//                                    .font(.caption)
+//                                    .foregroundColor(.blue)
+//                            }
+//                            .padding(.bottom, 15)
+//                            .sheet(isPresented: $isShowingScanner) {
+//                                QRCodeScannerView { result in
+//                                    scannedCribID = result
+//                                    isShowingScanner = false // Close the scanner after obtaining the cribID
+//                                    navigateToSignup = true // Navigate to Signup after obtaining the cribID
+//                                }
+//                            }
+                            
 
                             Spacer()
         }.ignoresSafeArea()
@@ -93,22 +91,22 @@ struct WelcomePage: View {
             
         }.navigationBarBackButtonHidden(true)
 }
-    func showCameraAccessAlert() {
-            let alert = UIAlertController(
-                title: "Camera Access",
-                message: "This feature requires access to your camera to scan QR codes.",
-                preferredStyle: .alert
-            )
-            
-            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-                isShowingScanner = true
-            })
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-            
-            // Present the alert
-            // (For SwiftUI, you might use an appropriate way to present UIAlertControllers)
-        }
+//    func showCameraAccessAlert() {
+//            let alert = UIAlertController(
+//                title: "Camera Access",
+//                message: "This feature requires access to your camera to scan QR codes.",
+//                preferredStyle: .alert
+//            )
+//            
+//            alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+//                isShowingScanner = true
+//            })
+//            
+//            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+//            
+//            // Present the alert
+//            // (For SwiftUI, you might use an appropriate way to present UIAlertControllers)
+//        }
 }
 struct WelcomePage_Previews: PreviewProvider {
     static var previews: some View {

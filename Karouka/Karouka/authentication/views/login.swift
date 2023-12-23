@@ -74,6 +74,7 @@ struct login: View {
                 }
                 .padding(.horizontal, 24)
                 .padding(.vertical, 16)
+                Spacer()
 
             }.ignoresSafeArea()
                 

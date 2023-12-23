@@ -99,7 +99,9 @@ struct home: View {
                                                 }.padding()
                                                 
                                             } .onAppear {
-                                                patientModel.fetchData()
+                                                DispatchQueue.main.async {
+                                                    patientModel.fetchData()
+                                                }
                                                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                                                             patientModel.objectWillChange.send()
                                                                         }
@@ -137,24 +139,41 @@ struct home: View {
                                             }.padding()
                                             
                                             VStack {
-                                                Text("Bed Inclination")
-                                                    .font(.system(size: 30))
-                                                    .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
-                                                Text("Incline or Decline?")
-                                                    .font(.system(size: 20))
-                                                    .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                                HStack {
+                                                    Spacer()
+                                                    VStack {
+                                                        Text("Bed Inclination")
+                                                            .font(.system(size: 30))
+                                                            .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                                        Text("Incline or Decline?")
+                                                            .font(.system(size: 20))
+                                                            .foregroundColor(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                                    }
+                                                    
+                                                    Spacer()
+                                                    
+                                                    Button{
+                                                        patientModel.reset(newValue: true)
+                                                    } label: {
+                                                        Text("RESET")
+                                                            .font(.system(size: 7))
+                                                            .foregroundColor(.white)
+                                                    }
+                                                    .frame(width: 30, height: 30)
+                                                    .background(Color(red: 180/255, green: 200/255, blue: 255/255))
+                                                    .clipShape(Circle())                                                }
                                                     
                                                 
                                                 HStack (spacing: 30){
                                                     
                                                     Button {
-                                                        patientModel.updatePump1(newValue: true)
+                                                        patientModel.incline(newValue: true)
                                                     } label: {
                                                         Image(systemName: "arrow.up")
                                                             .font(.system(size: 20))
                                                             .foregroundColor(.white)
-                                                            .background(Color.clear.opacity(0.5))
 
+                                                        
                                                     }
                                                     .frame(width: 125, height: 40)
                                                     .background(Color(red: 180/255, green: 200/255, blue: 255/255))
@@ -163,12 +182,11 @@ struct home: View {
                                                     
                                                     
                                                     Button {
-                                                        patientModel.updatePump2(newValue: true)
+                                                        patientModel.decline(newValue: true)
                                                     } label: {
                                                         Image(systemName: "arrow.down")
                                                             .font(.system(size: 20))
                                                             .foregroundColor(.white)
-                                                            .background(Color.clear.opacity(0.5))
       
                                                     }
                                                     .frame(width: 125, height: 40)

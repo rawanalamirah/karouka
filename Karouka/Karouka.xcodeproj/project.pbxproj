@@ -64,6 +64,7 @@
 		62C42E6A2ADF281500D3D205 /* profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C42E692ADF281500D3D205 /* profile.swift */; };
 		62C42E702ADF2FFE00D3D205 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C42E6F2ADF2FFE00D3D205 /* AuthViewModel.swift */; };
 		62C42E772ADF478500D3D205 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C42E762ADF478500D3D205 /* ContentView.swift */; };
+		62D8EC192B2FA414007A0313 /* watchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62D8EC182B2FA414007A0313 /* watchView.swift */; };
 		62F04D4D2AEFDFB60076CBC4 /* home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F04D4C2AEFDFB60076CBC4 /* home.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,8 @@
 		62C42E692ADF281500D3D205 /* profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profile.swift; sourceTree = "<group>"; };
 		62C42E6F2ADF2FFE00D3D205 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		62C42E762ADF478500D3D205 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		62D8EC162B2F6133007A0313 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		62D8EC182B2FA414007A0313 /* watchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = watchView.swift; sourceTree = "<group>"; };
 		62F04D4C2AEFDFB60076CBC4 /* home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +156,7 @@
 		6243689F2AC2AE67005667B7 = {
 			isa = PBXGroup;
 			children = (
+				62D8EC172B2FA3E4007A0313 /* watch */,
 				622A1B002B1BF39D002A81A2 /* chat */,
 				62BECB072B14F65B00B0A9F0 /* rrealtime */,
 				624368AA2AC2AE67005667B7 /* Karouka */,
@@ -171,6 +175,7 @@
 		624368AA2AC2AE67005667B7 /* Karouka */ = {
 			isa = PBXGroup;
 			children = (
+				62D8EC162B2F6133007A0313 /* Info.plist */,
 				624368AB2AC2AE67005667B7 /* KaroukaApp.swift */,
 				62C42E732ADF474B00D3D205 /* master */,
 				62C42E6B2ADF2CDB00D3D205 /* authentication */,
@@ -264,6 +269,14 @@
 				62C42E762ADF478500D3D205 /* ContentView.swift */,
 			);
 			path = master;
+			sourceTree = "<group>";
+		};
+		62D8EC172B2FA3E4007A0313 /* watch */ = {
+			isa = PBXGroup;
+			children = (
+				62D8EC182B2FA414007A0313 /* watchView.swift */,
+			);
+			path = watch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +388,7 @@
 				62A25AC22AC6FB0B00B90F7C /* WelcomePage.swift in Sources */,
 				62C42E642ADF1D7E00D3D205 /* InputView.swift in Sources */,
 				620150172AF30037006395A1 /* history.swift in Sources */,
+				62D8EC192B2FA414007A0313 /* watchView.swift in Sources */,
 				626F4D2B2AF0F411005A69B6 /* AddActivity.swift in Sources */,
 				62BECB092B14F67600B0A9F0 /* patientdata.swift in Sources */,
 				622A1B062B1C07F4002A81A2 /* ChatViewModel.swift in Sources */,
@@ -533,6 +547,7 @@
 				DEVELOPMENT_TEAM = 8H77M6PS25;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Karouka/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -564,6 +579,7 @@
 				DEVELOPMENT_TEAM = 8H77M6PS25;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Karouka/Info.plist;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

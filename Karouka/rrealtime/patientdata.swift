@@ -22,11 +22,9 @@ class PatientDataViewModel: ObservableObject {
     init() {
         ref = Database.database().reference().child("patient1") // Replace "patient1" with your node name
         
-        // Fetch initial data and observe changes
         fetchData()
         observeDataChanges()
-        splitTemp()
-        
+        splitTemp()        
     }
     
     func fetchData() {
@@ -53,17 +51,40 @@ class PatientDataViewModel: ObservableObject {
                 print("Failed to observe data changes")
             }
         }
+        let O2 = Int(self.O2)
+        let heart = Int(self.heartRate)
+        let facial = Int(self.newTemp)
+        
+        print(O2 ?? 0)
+        print(heart ?? 0)
+        print(facial ?? 0)
+        
+        if (O2 ?? 0 <= 80 && heart ?? 0 >= 160 && facial ?? 0 <= 20) {
+            incline(newValue: true)
+
+        }
     }
 
     
-    func updatePump1(newValue: Bool) {
+    func incline(newValue: Bool) {
         let intValue = newValue ? "1" : "0"
         updateValue(for: "pump1", newValue: intValue)
+        updateValue(for: "pump2", newValue: intValue)
+
     }
     
-    func updatePump2(newValue: Bool) {
+    func decline(newValue: Bool) {
         let intValue = newValue ? "2" : "0"
         updateValue(for: "pump1", newValue: intValue)
+        updateValue(for: "pump2", newValue: intValue)
+
+    }
+    
+    func reset(newValue: Bool) {
+        let intValue = newValue ? "0" : "0"
+        updateValue(for: "pump1", newValue: intValue)
+        updateValue(for: "pump2", newValue: intValue)
+
     }
     
     func updateServo(newValue: Bool) {
@@ -75,6 +96,7 @@ class PatientDataViewModel: ObservableObject {
         let intValue = newValue ? "2" : "0"
         updateValue(for: "song1", newValue: intValue)
     }
+    
     
     func splitTemp() {
         ref.observe(.value) { snapshot in
